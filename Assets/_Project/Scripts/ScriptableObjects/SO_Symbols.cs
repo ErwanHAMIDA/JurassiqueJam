@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SO_Symbols", menuName = "Scriptable Objects/SO_Symbols")]
