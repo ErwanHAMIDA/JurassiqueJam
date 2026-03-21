@@ -10,6 +10,8 @@ public class S_ClientManager : MonoBehaviour
     [SerializeField] Transform _spawnPoint;
     [SerializeField] GameObject _clientImage;
 
+    public static S_ClientManager Instance { get; private set; }
+
     private int _clientId;
     private int _preferenceCheckIndex = 0;
 
