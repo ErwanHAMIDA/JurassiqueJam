@@ -3211,7 +3211,7 @@ RectTransform:
   m_GameObject: {fileID: 784272729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.9456, y: 4.9456, z: 4.9456}
+  m_LocalScale: {x: 1.6647753, y: 1.6647753, z: 1.6647753}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 591853438}
@@ -3219,7 +3219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 129.1}
+  m_AnchoredPosition: {x: 217, y: 171}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &784272731
@@ -3987,7 +3987,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Give Item
+  m_text: 'Reset
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6723,7 +6725,7 @@ RectTransform:
   m_GameObject: {fileID: 2088717875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.9456, y: 4.9456, z: 4.9456}
+  m_LocalScale: {x: 1.6647753, y: 1.6647753, z: 1.6647753}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1177354341}
@@ -6731,7 +6733,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 129.1}
+  m_AnchoredPosition: {x: 216.99998, y: 88}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2088717877
@@ -6778,16 +6780,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 63182442}
-        m_TargetAssemblyTypeName: S_ClientManager, Assembly-CSharp
-        m_MethodName: CompareItem
-        m_Mode: 1
+      - m_Target: {fileID: 1139545363}
+        m_TargetAssemblyTypeName: SymbolManager, Assembly-CSharp
+        m_MethodName: ResetSymbolContainer
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1272154473}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: GameScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2088717878

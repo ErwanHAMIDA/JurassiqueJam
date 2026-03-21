@@ -9,6 +9,7 @@ public class SymbolManager : MonoBehaviour
     
     public SO_Symbols[] _symbolList;
     [SerializeField] List<Button> _buttonList;
+    [SerializeField] Transform _containerSpawnPoint;
     
     private void Awake() 
     {         
@@ -25,7 +26,7 @@ public class SymbolManager : MonoBehaviour
     private void Start()
     {
         if (_buttonList.Count != _symbolList.Length) throw new ArgumentException("The quantity button or symbol number are not the same", nameof(_buttonList));
-
+        
         for (int i = 0; i < _buttonList.Count; i++)
         {
             if (_symbolList[i]._isAvailable)
@@ -50,5 +51,11 @@ public class SymbolManager : MonoBehaviour
     public void UnlockSymbols(int id)
     {
         _buttonList[id].interactable = true;
+    }
+
+    public void ResetSymbolContainer(GameObject container)
+    {
+        Destroy(container);
+        //Instantiate(SymbolContainer, _containerSpawnPoint)
     }
 }
