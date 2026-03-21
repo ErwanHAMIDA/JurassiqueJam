@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class PlacedSymbol
 {
     public int Id;

@@ -1,12 +1,12 @@
 using System.Collections.Specialized;
-using System.ComponentModel.DataAnnotations;
 using System.Data.Common;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class CraftManager : MonoBehaviour
 {
     [Range(1.0f, 4.0f)]
-    [SerializedField] private float _snapRadius;
+    [SerializeField] private float _snapRadius;
     private int _currentTabletIndex = 0;
     const int NUM_TABLETS = 3;
 
@@ -15,7 +15,7 @@ public class CraftManager : MonoBehaviour
     private float _currentRotation = 0f;
     private int _selectedMaterialId = -1;
 
-    private List<PlacedSymbol> PlacedSymbols = [];
+    private List<PlacedSymbol> PlacedSymbols = new List<PlacedSymbol>();
 
     public void NextTablet()
     {
@@ -37,12 +37,12 @@ public class CraftManager : MonoBehaviour
     {
         if (_selectedSymbolId < 0) return;
 
-        _currentSymbolScale = Math.Clamp(_currentSymbolScale + factor, 0.5f, 2f);
+        _currentSymbolScale = Mathf.Clamp(_currentSymbolScale + factor, 0.5f, 2f);
     }
 
     public void RotateSymbol(float factor)
     {
-        if (_selectedSymbolId) return;
+        if (_selectedSymbolId < 0) return;
 
         _currentRotation = (_currentRotation + factor) % 360f;
         if (_currentRotation < 0) _currentRotation = 360f - _currentRotation;
@@ -69,7 +69,7 @@ public class CraftManager : MonoBehaviour
         PlacedSymbol closest = null;
         foreach (var zone in PlacedSymbols)
         {
-            float dist = Vector2.Distance(position, zone.position);
+            float dist = Vector2.Distance(position, zone.Position);
             if (dist < minDist && dist <= _snapRadius)
             {
                 minDist = dist;
