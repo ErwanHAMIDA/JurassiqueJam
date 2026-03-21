@@ -49,7 +49,6 @@ public class CraftManager : MonoBehaviour
     public void SelectSymbol(int id)
     {
         _selectedSymbolId = id;
-        _symbolPrevisu.gameObject.SetActive(true);
         _symbolPrevisu.ChangeSymbol(SymbolManager.Instance.GetSymbolById(id)._symbolPrefab);
     }
 
@@ -65,7 +64,6 @@ public class CraftManager : MonoBehaviour
 
     public void UnselectSymbol()
     {
-        _symbolPrevisu.gameObject.SetActive(false);
         _selectedSymbolId = -1;
         _scaleSlider.value = 0.1f;
         _rotateSlider.value = 0f;
