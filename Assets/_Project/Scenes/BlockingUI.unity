@@ -1058,7 +1058,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 30}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &502107224
@@ -1512,7 +1512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CraftManager
   _snapRadius: 1
   _symbolPrevisu: {fileID: 1485094567}
-  _scaleSlider: {fileID: 0}
+  _scaleSlider: {fileID: 1451372489}
   _rotateSlider: {fileID: 420193037}
 --- !u!4 &876774107
 Transform:
@@ -2133,8 +2133,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1485094564}
+  m_Children: []
   m_Father: {fileID: 1722957522}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2705,7 +2704,7 @@ GameObject:
   - component: {fileID: 1451372488}
   - component: {fileID: 1451372489}
   m_Layer: 5
-  m_Name: RotateSlider (1)
+  m_Name: SizeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2730,7 +2729,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1451372489
@@ -2786,7 +2785,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 876774106}
         m_TargetAssemblyTypeName: CraftManager, Assembly-CSharp
-        m_MethodName: RotateSymbol
+        m_MethodName: ResizeSymbol
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2963,7 +2962,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1227115564}
+  m_Father: {fileID: 1722957522}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3512,6 +3511,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1485094564}
   - {fileID: 1227115564}
   - {fileID: 1979869162}
   - {fileID: 969291192}
