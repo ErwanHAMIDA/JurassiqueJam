@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e52938866dd0741bea24486db2cc4e, type: 3}
+  m_Name: ID12_Guerrier
+  m_EditorClassIdentifier: Assembly-CSharp::SO_Symbols
+  _id: 12
+  _name: Guerrier
+  _description: Symbole akkadien de force et de puissance/
+  _symbolPrefab: {fileID: 0}
+  _isAvailable: 1
+  _symbolType: 1
+  _symbolOrigin: 01000000
+  _symbolTags: 03000000
