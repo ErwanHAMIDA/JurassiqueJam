@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ID00_Etoile
   m_EditorClassIdentifier: Assembly-CSharp::SO_Symbols
   _id: 0
-  _name: Etoile
-  _description: 
+  _name: "\xC9toile"
+  _description: "Un symbole partag\xE9 qui renvoie \xE0 la divinit\xE9 au sens g\xE9n\xE9ral."
   _symbolPrefab: {fileID: 0}
   _symbolType: 0
-  _symbolOrigin: 00000000
-  _symbolTags: 020000000400000005000000
+  _symbolOrigin: 000000000100000002000000
+  _symbolTags: 02000000
