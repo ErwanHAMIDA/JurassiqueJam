@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/FinalGameScene/MainMenu.unity
     guid: f259a2ff75278ac4aac46a52fc75f928
   - enabled: 1
+    path: Assets/_Project/Scenes/BlockingUI.unity
+    guid: 630d5ff92d810184fbb55913c75c4e58
+  - enabled: 1
     path: Assets/_Project/Scenes/FinalGameScene/GameScene.unity
     guid: 69e167da77966414c8ca48cbeb1a79dd
   m_configObjects:
