@@ -4,7 +4,11 @@ using UnityEngine.UI;
 public class FollowCursor : MonoBehaviour
 {
     private bool _isOnRecipient = false;
+    private bool _isClicking = false;
+    private bool _isMoving = false;
     private RectTransform _rectTransform;
+    private Vector2 _startPosition;
+    private Vector2 _lastPosition;
 
     void Start()
     {
@@ -22,6 +26,34 @@ public class FollowCursor : MonoBehaviour
             transform.position = Input.mousePosition;
         }
         
+        // Place Symbol
+        if (Input.GetMouseButtonDown(0) && _isOnRecipient)
+        {
+            _isClicking = true;
+            _startPosition = Input.mousePosition;
+            _lastPosition = Input.mousePosition;
+        }
+
+        if (Input.GetMouseButton(0) && _isClicking)
+        {
+            if (Vector2.Distance(_startPosition, Input.mousePosition) > 0.1f)
+            {
+                _isMoving = true;
+            }
+
+            if (_isMoving)
+            {
+                CraftManager.Instance.MoveBaseTexture(Input.mousePosition.x - _lastPosition.x);
+                _lastPosition = Input.mousePosition;
+            }
+        }
+
+        if (Input.GetMouseButtonUp(0) && _isOnRecipient && !_isMoving)
+        {
+            Debug.Log("Place Symbol");
+            _isClicking = false;
+            CraftManager.Instance.PlaceSymbol(Input.mousePosition, transform.GetChild(0).localScale, transform.GetChild(0).rotation);
+        }
     }
 
     public void ChangeSymbol(GameObject symbol)

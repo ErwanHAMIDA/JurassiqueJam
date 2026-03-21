@@ -11,15 +11,29 @@ public class CraftManager : MonoBehaviour
     [SerializeField] private FollowCursor _symbolPrevisu;
     [SerializeField] private Slider _scaleSlider;
     [SerializeField] private Slider _rotateSlider;
+    [SerializeField] private Transform _baseTexture;
+
     private int _currentTabletIndex = 0;
     const int NUM_TABLETS = 3;
 
     private int _selectedSymbolId = -1;
-    private float _currentSymbolScale = 1f;
-    private float _currentRotation = 0f;
     private int _selectedMaterialId = -1;
 
     private List<PlacedSymbol> PlacedSymbols = new List<PlacedSymbol>();
+
+    public static CraftManager Instance { get; private set; }
+
+    private void Awake() 
+    {         
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        } 
+    }
 
     public void NextTablet()
     {
@@ -35,6 +49,8 @@ public class CraftManager : MonoBehaviour
     public void SelectSymbol(int id)
     {
         _selectedSymbolId = id;
+        _symbolPrevisu.gameObject.SetActive(true);
+        _symbolPrevisu.ChangeSymbol(SymbolManager.Instance.GetSymbolById(id)._symbolPrefab);
     }
 
     public void ResizeSymbol()
@@ -49,17 +65,20 @@ public class CraftManager : MonoBehaviour
 
     public void UnselectSymbol()
     {
+        _symbolPrevisu.gameObject.SetActive(false);
         _selectedSymbolId = -1;
-        _currentSymbolScale = 1f;
-        _currentRotation = 0f;
+        _scaleSlider.value = 0.1f;
+        _rotateSlider.value = 0f;
     }
 
-    public void PlaceSymbol(Vector2 position)
+    public void PlaceSymbol(Vector2 position, Vector3 scale, Quaternion rotation)
     {
         if (_selectedSymbolId >= 0 && PlacedSymbols.Count < 128)
-            PlacedSymbols.Add(new PlacedSymbol { Id = _selectedSymbolId, Position = position, Scale = _currentSymbolScale });
-
-        UnselectSymbol();
+        {
+            GameObject go_symbol = Instantiate(SymbolManager.Instance.GetSymbolById(_selectedSymbolId)._symbolPrefab, position, rotation, _baseTexture);
+            go_symbol.transform.localScale = scale;
+            PlacedSymbols.Add(new PlacedSymbol { Id = _selectedSymbolId, Position = position, Scale = _scaleSlider.value });
+        }
     }
 
     public void PlaceMaterial(Vector2 position)
@@ -76,5 +95,10 @@ public class CraftManager : MonoBehaviour
             }
         }
         closest.MaterialId = _selectedMaterialId;
+    }
+
+    public void MoveBaseTexture(float position)
+    {
+        _baseTexture.position = new Vector2(_baseTexture.position.x + position, _baseTexture.position.y);
     }
 }
