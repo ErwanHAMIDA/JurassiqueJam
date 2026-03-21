@@ -3,9 +3,25 @@ using UnityEngine.UI;
 
 public class FollowCursor : MonoBehaviour
 {
+    private bool _isOnRecipient = false;
+    private RectTransform _rectTransform;
+
+    void Start()
+    {
+        _rectTransform = GetComponent<RectTransform>();
+    }
+
     void Update()
     {
-        transform.position = Input.mousePosition;
+        if (!_isOnRecipient)
+        {
+            _rectTransform.localPosition = Vector3.zero;   
+        }
+        else
+        {
+            transform.position = Input.mousePosition;
+        }
+        
     }
 
     public void ChangeSymbol(GameObject symbol)
@@ -42,5 +58,10 @@ public class FollowCursor : MonoBehaviour
         {
             Destroy(transform.GetChild(0).gameObject);
         }
+    }
+
+    public void ChangeState(bool onRecipient)
+    {
+        _isOnRecipient = onRecipient;
     }
 }
