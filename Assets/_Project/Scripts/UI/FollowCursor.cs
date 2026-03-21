@@ -57,14 +57,20 @@ public class FollowCursor : MonoBehaviour
             }
             else if (_isOnRecipient)
             {
-                _isClicking = false;
                 CraftManager.Instance.PlaceSymbol(Input.mousePosition, transform.GetChild(0).localScale, transform.GetChild(0).rotation);
             }
+
+            _isClicking = false;
         }
     }
 
     public void ChangeSymbol(GameObject symbol)
     {
+        if (transform.childCount > 0)
+        {
+            Destroy(transform.GetChild(0).gameObject);
+        }
+
         GameObject newSymbol = Instantiate(symbol, transform.position, Quaternion.identity, transform);
 
         if (newSymbol.TryGetComponent<Image>(out Image image))
@@ -89,14 +95,6 @@ public class FollowCursor : MonoBehaviour
     public void ChangeRotation(float rotation)
     {
         transform.GetChild(0).eulerAngles = new Vector3 (0,0,rotation);
-    }
-
-    void OnDisable()
-    {
-        if (transform.childCount > 0)
-        {
-            Destroy(transform.GetChild(0).gameObject);
-        }
     }
 
     public void ChangeState(bool onRecipient)
