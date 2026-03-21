@@ -37,6 +37,7 @@ public class SO_Symbols : ScriptableObject
         Fertility,
         Moon,
         Sun,
-        Protection
+        Protection,
+        Medecine
     }
 }
