@@ -2,11 +2,15 @@ using System.Collections.Specialized;
 using System.Data.Common;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class CraftManager : MonoBehaviour
 {
     [Range(1.0f, 4.0f)]
     [SerializeField] private float _snapRadius;
+    [SerializeField] private FollowCursor _symbolPrevisu;
+    [SerializeField] private Slider _scaleSlider;
+    [SerializeField] private Slider _rotateSlider;
     private int _currentTabletIndex = 0;
     const int NUM_TABLETS = 3;
 
@@ -33,19 +37,14 @@ public class CraftManager : MonoBehaviour
         _selectedSymbolId = id;
     }
 
-    public void ResizeSymbol(float factor)
+    public void ResizeSymbol()
     {
-        if (_selectedSymbolId < 0) return;
-
-        _currentSymbolScale = Mathf.Clamp(_currentSymbolScale + factor, 0.5f, 2f);
+        _symbolPrevisu.ChangeScale(_scaleSlider.value * 10);
     }
 
-    public void RotateSymbol(float factor)
+    public void RotateSymbol()
     {
-        if (_selectedSymbolId < 0) return;
-
-        _currentRotation = (_currentRotation + factor) % 360f;
-        if (_currentRotation < 0) _currentRotation = 360f - _currentRotation;
+        _symbolPrevisu.ChangeRotation(_rotateSlider.value * 360);
     }
 
     public void UnselectSymbol()

@@ -26,6 +26,16 @@ public class FollowCursor : MonoBehaviour
         }
     }
 
+    public void ChangeScale(float scale)
+    {
+        transform.GetChild(0).localScale = Vector3.one * scale;
+    }
+
+    public void ChangeRotation(float rotation)
+    {
+        transform.GetChild(0).eulerAngles = new Vector3 (0,0,rotation);
+    }
+
     void OnDisable()
     {
         if (transform.childCount > 0)
