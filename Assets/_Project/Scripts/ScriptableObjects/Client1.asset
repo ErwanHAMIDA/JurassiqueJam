@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SO_Client
   _name: Client 1
   _sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  _preferences:
+  - {fileID: 11400000, guid: 9a638c32f6b5f60419686dc4820d9756, type: 2}
+  - {fileID: 11400000, guid: 9d8d63784b714954f84ac9c3f3e3667d, type: 2}
