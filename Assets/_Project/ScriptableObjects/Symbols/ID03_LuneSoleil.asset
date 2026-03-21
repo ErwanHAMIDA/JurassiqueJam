@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e52938866dd0741bea24486db2cc4e, type: 3}
+  m_Name: ID03_LuneSoleil
+  m_EditorClassIdentifier: Assembly-CSharp::SO_Symbols
+  _id: 3
+  _name: Lune et Soleil
+  _description: "Symbole assyrien repr\xE9sentant l'unification et la puissance divine."
+  _symbolPrefab: {fileID: 0}
+  _isAvailable: 1
+  _symbolType: 0
+  _symbolOrigin: 02000000
+  _symbolTags: 020000000600000005000000
