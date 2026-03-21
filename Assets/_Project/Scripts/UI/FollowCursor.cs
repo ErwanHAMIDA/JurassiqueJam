@@ -48,11 +48,18 @@ public class FollowCursor : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0) && _isOnRecipient && !_isMoving)
+        if (Input.GetMouseButtonUp(0))
         {
             Debug.Log("Place Symbol");
-            _isClicking = false;
-            CraftManager.Instance.PlaceSymbol(Input.mousePosition, transform.GetChild(0).localScale, transform.GetChild(0).rotation);
+            if (_isMoving)
+            {
+                _isMoving = false;
+            }
+            else if (_isOnRecipient)
+            {
+                _isClicking = false;
+                CraftManager.Instance.PlaceSymbol(Input.mousePosition, transform.GetChild(0).localScale, transform.GetChild(0).rotation);
+            }
         }
     }
 
