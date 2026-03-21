@@ -4,14 +4,38 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SO_Symbols", menuName = "Scriptable Objects/SO_Symbols")]
 public class SO_Symbols : ScriptableObject
 {
-    public string _name;
     public int _id;
-    public Sprite _sprite;
+    public string _name;
+    public string _description;
+    public GameObject _symbolPrefab;
+
+    public SymbolType _symbolType;
+    public Civilization[] _symbolOrigin;
+
+    public SymbolTag[] _symbolTags;
+
     public enum SymbolType
     {
-        Gems,
-        Triangle,
-        Snake,
-        LifeTree
+        Divine,
+        Ritual,
+        Esthetic
+    }
+
+    public enum Civilization
+    {
+        Sumerian,
+        Akkadian,
+        Assyrian
+    }
+    public enum SymbolTag
+    {
+        Animal,
+        Vegetal,
+        Cosmic,
+        Strength,
+        Fertility,
+        Moon,
+        Sun
+
     }
 }
