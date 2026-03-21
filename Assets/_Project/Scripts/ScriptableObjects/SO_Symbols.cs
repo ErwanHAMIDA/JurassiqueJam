@@ -8,6 +8,7 @@ public class SO_Symbols : ScriptableObject
     public string _name;
     public string _description;
     public GameObject _symbolPrefab;
+    public bool _isAvailable;
 
     public SymbolType _symbolType;
     public Civilization[] _symbolOrigin;

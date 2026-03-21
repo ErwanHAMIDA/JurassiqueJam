@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29e52938866dd0741bea24486db2cc4e, type: 3}
-  m_Name: ID00_Etoile
+  m_Name: ID00_Test 1
   m_EditorClassIdentifier: Assembly-CSharp::SO_Symbols
-  _id: 0
-  _name: "\xC9toile"
-  _description: "Un symbole partag\xE9 qui renvoie \xE0 la divinit\xE9 au sens g\xE9n\xE9ral."
-  _symbolPrefab: {fileID: 7580795917399361997, guid: 115304d73bd060c43ba4a83af4ffc2ba, type: 3}
+  _id: 1
+  _name: Test
+  _description: Ceci n'est pas un test
+  _symbolPrefab: {fileID: 0}
   _isAvailable: 1
   _symbolType: 0
   _symbolOrigin: 000000000100000002000000
