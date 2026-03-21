@@ -40,7 +40,6 @@ public class S_ClientManager : MonoBehaviour
 
         int index = 0;
 
-
         for (int i = 0; i < currentSymbolNumber; i++)
         {
             for (int j = 0; j < clientPreferences; j++)
