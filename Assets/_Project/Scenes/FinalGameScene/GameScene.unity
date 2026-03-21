@@ -148,12 +148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542a025edb498044aa5563dff593659a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_DialogSystem
-  _allSentencesList:
-  - Bonjour
-  - Je
-  - Tu
-  - Il
+  _allclientSentencesList:
+  - {fileID: 11400000, guid: 4749c2a324156824baeb7814467db70c, type: 2}
+  - {fileID: 11400000, guid: 8c0600534da5d424d8eb547a84cbcccd, type: 2}
+  - {fileID: 11400000, guid: 78809f6efed2522479946e00824b894b, type: 2}
   _dialogText: {fileID: 603801490}
+  _selectedClientIndex: 1
 --- !u!4 &16168377
 Transform:
   m_ObjectHideFlags: 0

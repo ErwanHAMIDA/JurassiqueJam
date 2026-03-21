@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class S_DialogSystem : MonoBehaviour
 {
-    [SerializeField] List<string> _allSentencesList;
+    [SerializeField] List<SO_ClientDialog> _allclientSentencesList;
     [SerializeField] TextMeshProUGUI _dialogText;
+    [SerializeField] int _selectedClientIndex = 0; //temporary here, will be choosen on clientManager
 
     private int _currentIndex = 0;
 
@@ -17,7 +18,7 @@ public class S_DialogSystem : MonoBehaviour
 
     public void NextDialog()
     {
-        if (_currentIndex >= _allSentencesList.Count - 1) return;
+        if (_currentIndex >= _allclientSentencesList[_selectedClientIndex]._clientSentences.Count - 1) return;
 
         _currentIndex++;
         UpdateDialog();
@@ -26,12 +27,13 @@ public class S_DialogSystem : MonoBehaviour
     public void PreviousDialog()
     {
         if (_currentIndex <= 0) return;
+
         _currentIndex--;
         UpdateDialog();
     }
 
     public void UpdateDialog()
     {
-        _dialogText.text = _allSentencesList[_currentIndex];
+        _dialogText.text = _allclientSentencesList[_selectedClientIndex]._clientSentences[_currentIndex];
     }
 }
