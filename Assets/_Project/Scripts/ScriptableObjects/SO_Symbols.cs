@@ -3,9 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SO_Symbols", menuName = "Scriptable Objects/SO_Symbols")]
 public class SO_Symbols : ScriptableObject
 {
-    public string _name;
     public int _id;
-    public Sprite _sprite;
+    public string _name;
+    public string _description;
+    public GameObject _symbolPrefab;
 
     public SymbolType _symbolType;
     public Civilization[] _symbolOrigin;
@@ -31,7 +32,9 @@ public class SO_Symbols : ScriptableObject
         Vegetal,
         Cosmic,
         Strength,
-        Fertility
+        Fertility,
+        Moon,
+        Sun
 
     }
 }

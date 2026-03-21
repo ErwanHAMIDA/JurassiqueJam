@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29e52938866dd0741bea24486db2cc4e, type: 3}
-  m_Name: Snake
+  m_Name: ID00_Etoile
   m_EditorClassIdentifier: Assembly-CSharp::SO_Symbols
-  _name: 
   _id: 0
-  _sprite: {fileID: 0}
+  _name: Etoile
+  _description: 
+  _symbolPrefab: {fileID: 0}
+  _symbolType: 0
+  _symbolOrigin: 00000000
+  _symbolTags: 020000000400000005000000
