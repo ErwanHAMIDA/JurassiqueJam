@@ -7,18 +7,13 @@ public class S_DialogSystem : MonoBehaviour
 {
     [SerializeField] List<SO_ClientDialog> _allclientSentencesList;
     [SerializeField] TextMeshProUGUI _dialogText;
-    [SerializeField] int _selectedClientIndex = 0; //temporary here, will be choosen on clientManager
+    [SerializeField] S_ClientManager _clientManager;
 
     private int _currentIndex = 0;
 
-    private void Start()
-    {
-        UpdateDialog();
-    }
-
     public void NextDialog()
     {
-        if (_currentIndex >= _allclientSentencesList[_selectedClientIndex]._clientSentences.Count - 1) return;
+        if (_currentIndex >= _allclientSentencesList[_clientManager.GetCurrentClientID()]._clientSentences.Count - 1) return;
 
         _currentIndex++;
         UpdateDialog();
@@ -34,6 +29,6 @@ public class S_DialogSystem : MonoBehaviour
 
     public void UpdateDialog()
     {
-        _dialogText.text = _allclientSentencesList[_selectedClientIndex]._clientSentences[_currentIndex];
+        _dialogText.text = _allclientSentencesList[_clientManager.GetCurrentClientID()]._clientSentences[_currentIndex];
     }
 }
