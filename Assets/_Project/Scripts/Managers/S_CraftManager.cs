@@ -3,6 +3,7 @@ using System.Data.Common;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
 
 public class CraftManager : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class CraftManager : MonoBehaviour
 
     private int _selectedSymbolId = -1;
     private int _selectedMaterialId = -1;
+
+    [NonSerialized] public Sprite _selectedMaterial;
+
 
     private List<PlacedSymbol> PlacedSymbols = new List<PlacedSymbol>();
 
