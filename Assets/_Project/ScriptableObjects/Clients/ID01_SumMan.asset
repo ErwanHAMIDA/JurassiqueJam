@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ID01_SumMan
   m_EditorClassIdentifier: Assembly-CSharp::SO_Client
   _name: Client2
-  _sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  _sprite: {fileID: 21300000, guid: 3e4e3973e5b19c44191d172de16ef3c5, type: 3}
   _clientOrigin: 0
   _typesPreferences: 0000000002000000
   _numberNeededType: 0000000005000000

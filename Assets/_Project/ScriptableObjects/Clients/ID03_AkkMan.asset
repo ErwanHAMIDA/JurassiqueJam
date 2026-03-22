@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ID03_AkkMan
   m_EditorClassIdentifier: Assembly-CSharp::SO_Client
   _name: CLient3
-  _sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  _sprite: {fileID: 21300000, guid: 3b82d559a1e8b3b40acb2921e1517346, type: 3}
   _clientOrigin: 1
   _typesPreferences: 0000000002000000
   _numberNeededType: 0100000003000000
