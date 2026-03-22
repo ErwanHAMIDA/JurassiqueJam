@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Losange
   _description: "Forme g\xE9om\xE9trique qui, combin\xE9e au triangle, permet de
     cr\xE9er des frises d'encadrement pour les sum\xE9riens et les akkadiens."
-  _symbolPrefab: {fileID: 0}
+  _symbolPrefab: {fileID: 3530219168004248784, guid: 521989c017c885c40b546b6435781e10, type: 3}
   _isAvailable: 1
   _symbolType: 2
   _symbolOrigin: 0000000001000000

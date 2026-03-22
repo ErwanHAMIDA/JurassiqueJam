@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: "Rosace \xE0 8 p\xE9tales"
   _description: "Symbole sum\xE9rien li\xE9 \xE0 Inanna, d\xE9esse de l'amour, de
     la fertilit\xE9 et de la guerre."
-  _symbolPrefab: {fileID: 0}
+  _symbolPrefab: {fileID: 6091821662498785348, guid: 1491290aae14b1e478e1a73b97b9a9dc, type: 3}
   _isAvailable: 1
   _symbolType: 0
   _symbolOrigin: 00000000

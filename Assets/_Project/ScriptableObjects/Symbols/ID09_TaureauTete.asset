@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: "T\xEAte de Taureau"
   _description: "Le taureau est un animal sacr\xE9. Le triangle invers\xE9 sur son
     front, en Lapis Lazuli, le consacre aux divinit\xE9s."
-  _symbolPrefab: {fileID: 0}
+  _symbolPrefab: {fileID: 8037158186746630804, guid: b5a32ce9c822dfb4fbb0a6804134d1ca, type: 3}
   _isAvailable: 1
   _symbolType: 1
   _symbolOrigin: 000000000100000002000000

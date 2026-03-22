@@ -15,7 +15,7 @@ MonoBehaviour:
   _id: 2
   _name: Soleil
   _description: "Symbole akkadien repr\xE9sentant le dieu-Soleil."
-  _symbolPrefab: {fileID: 0}
+  _symbolPrefab: {fileID: 3530219168004248784, guid: 057623401471fa14b8f4b7d6316f520d, type: 3}
   _isAvailable: 1
   _symbolType: 0
   _symbolOrigin: 01000000
