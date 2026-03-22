@@ -7,5 +7,12 @@ public class SO_Client : ScriptableObject
 {
     public string _name;
     public Sprite _sprite;
-    public List<SO_Symbols> _preferences;
+
+    public SO_Symbols.Civilization _clientOrigin;
+
+    public SO_Symbols.SymbolType[] _typesPreferences;
+    public int[] _numberNeededType;
+
+    public SO_Symbols.SymbolTag[] _tagsPreferences;
+    public int[] _numberNeededTag;
 }

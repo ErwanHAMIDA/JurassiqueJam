@@ -46,3 +46,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SymbolManager
   _symbolList:
   - {fileID: 11400000, guid: 9d8d63784b714954f84ac9c3f3e3667d, type: 2}
+  - {fileID: 11400000, guid: 34af13f519ce29346b09d9618358c66a, type: 2}
+  - {fileID: 11400000, guid: 1ea047605aa19a54a9b82f280169f98c, type: 2}
+  - {fileID: 11400000, guid: 6d6d7cf7e5bc67644be9686449be69cc, type: 2}
+  - {fileID: 11400000, guid: 12bb743215449ca4d9666c8ae32a3623, type: 2}
+  - {fileID: 11400000, guid: 06c1882021c34b0409019e9375330692, type: 2}
+  - {fileID: 11400000, guid: be2ece5e48f78dc4eacc139f3e6d15d2, type: 2}
+  - {fileID: 11400000, guid: 4b0bebb6930af584b9e176adcbe522e1, type: 2}
+  - {fileID: 11400000, guid: aa6096740e87a5a44872e6b0e516da3d, type: 2}
+  - {fileID: 11400000, guid: adce7ed8ebc151a4c92974f599a86b7f, type: 2}
+  - {fileID: 11400000, guid: 3d17676982153534ab16849f03dd195c, type: 2}
+  - {fileID: 11400000, guid: a59fdb99edd461f4986fcb86451b7cfd, type: 2}
+  - {fileID: 11400000, guid: 6a5f8413673f42e4a8e544dcf0167910, type: 2}
+  - {fileID: 11400000, guid: 53fda0c12c5ccfb45a7b2b1b664022ab, type: 2}
+  - {fileID: 11400000, guid: a0b46d36516b4344f925d51d7e90975a, type: 2}
+  - {fileID: 11400000, guid: 0a209ab9236dd374aa3af266996723c6, type: 2}
+  - {fileID: 11400000, guid: bc1251701c76d514586dd47ff93df495, type: 2}
+  - {fileID: 11400000, guid: ed805adf9cf36ce4ba9685b467c49ef5, type: 2}
+  - {fileID: 11400000, guid: 2bb627f28a2854a4a8765bc6d4491334, type: 2}
+  - {fileID: 11400000, guid: dd0d3edcb3602f744aa723b9149eb671, type: 2}
+  - {fileID: 11400000, guid: eef6c9fc226755e49a426cb6273503e8, type: 2}
+  _buttonList: []
+  _containerSpawnPoint: {fileID: 0}
