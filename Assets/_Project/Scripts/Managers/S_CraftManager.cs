@@ -99,4 +99,9 @@ public class CraftManager : MonoBehaviour
     {
         _baseTexture.position = new Vector2(_baseTexture.position.x + position, _baseTexture.position.y);
     }
+
+    public List<PlacedSymbol> GetPlacedSymbols()
+    {
+        return PlacedSymbols;
+    }
 }

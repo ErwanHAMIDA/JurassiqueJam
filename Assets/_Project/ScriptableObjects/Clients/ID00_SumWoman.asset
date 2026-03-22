@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c275273116f167c4fa1ffb373c198c8b, type: 3}
-  m_Name: Client2
+  m_Name: ID00_SumWoman
   m_EditorClassIdentifier: Assembly-CSharp::SO_Client
-  _name: Client2
-  _sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  _name: Client 1
+  _sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   _preferences:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 9a638c32f6b5f60419686dc4820d9756, type: 2}
+  - {fileID: 11400000, guid: 9d8d63784b714954f84ac9c3f3e3667d, type: 2}

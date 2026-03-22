@@ -12,8 +12,15 @@ public class S_ClientManager : MonoBehaviour
 
     public static S_ClientManager Instance { get; private set; }
 
+    public enum ClientSatisfaction
+    {
+        Joyful,
+        Happy,
+        Unhappy,
+        Sad
+    }
+
     private int _clientId;
-    private int _preferenceCheckIndex = 0;
 
     public void SelectClient(int index)
     {
@@ -33,32 +40,74 @@ public class S_ClientManager : MonoBehaviour
         return _clientId;
     }
 
-    public void CompareItem()
+    public ClientSatisfaction CompareItem()
     {
-        int currentSymbolNumber = SymbolManager.Instance._symbolList.Length;
-        int clientPreferences = _clientList[_clientId]._preferences.Count;
+        List<PlacedSymbol> placedSymbols = CraftManager.Instance.GetPlacedSymbols();
+        int currentSymbolNumber = placedSymbols.Count;
+        int clientPreferencesTypes = _clientList[_clientId]._typesPreferences.Length;
+        int clientPreferencesTags = _clientList[_clientId]._tagsPreferences.Length;
 
-        if (currentSymbolNumber < clientPreferences) return;
+        int score = 0;
 
-        int index = 0;
+        int maxScore = clientPreferencesTypes + clientPreferencesTags;
 
-        for (int i = 0; i < currentSymbolNumber; i++)
+        // Check client preferences
+        int[] currentTypes = new int[currentSymbolNumber];
+        int[] currentTags = new int[currentSymbolNumber];
+
+        // Check client prefered types
+        for (int i = 0; i < _clientList[_clientId]._typesPreferences.Length; i++)
         {
-            for (int j = 0; j < clientPreferences; j++)
+            for (int j = 0; j < currentSymbolNumber; j++)
             {
-                if (_clientList[_clientId]._preferences[i] == SymbolManager.Instance.GetSymbolById(j))
+                SO_Symbols currentSymbol = SymbolManager.Instance.GetSymbolById(placedSymbols[i].Id);
+                if (currentSymbol._symbolType == _clientList[_clientId]._typesPreferences[i] && currentSymbol._symbolOrigin.Contains(_clientList[_clientId]._clientOrigin))
                 {
-                    Debug.Log("OKAY");
-                    return;
+                    currentTypes[i]++;
                 }
             }
         }
 
-        foreach (SO_Symbols symbols in SymbolManager.Instance._symbolList)
+        for (int i = 0; i < currentTypes.Length; i++)
         {
-            if (_clientList[_clientId]._preferences[_preferenceCheckIndex] == SymbolManager.Instance.GetSymbolById(index)) Debug.Log("OKAY");
-
-            index++;
+            if (currentTypes[i] > _clientList[_clientId]._numberNeededType[i])
+                score++;
+            else if (currentTypes[i] < _clientList[_clientId]._numberNeededType[i] / 3)
+            {
+                score--;
+            }
         }
+
+        // Check client prefered types
+        for (int i = 0; i < _clientList[_clientId]._typesPreferences.Length; i++)
+        {
+            for (int j = 0; j < currentSymbolNumber; j++)
+            {
+                SO_Symbols currentSymbol = SymbolManager.Instance.GetSymbolById(placedSymbols[i].Id);
+                if (currentSymbol._symbolTags.Contains(_clientList[_clientId]._tagsPreferences[i]) && currentSymbol._symbolOrigin.Contains(_clientList[_clientId]._clientOrigin))
+                {
+                    currentTags[i]++;
+                }
+            }
+        }
+
+        for (int i = 0; i < currentTags.Length; i++)
+        {
+            if (currentTags[i] > _clientList[_clientId]._numberNeededTag[i])
+                score++;
+            else if (currentTags[i] < _clientList[_clientId]._numberNeededTag[i] / 3)
+            {
+                score--;
+            }            
+        }
+
+        if (score >= maxScore)
+            return ClientSatisfaction.Joyful;
+        else if (score >= maxScore * 0.75f)
+            return ClientSatisfaction.Happy;
+        else if (score >= 0)
+            return ClientSatisfaction.Unhappy;
+        else
+            return ClientSatisfaction.Sad;
     }
 }

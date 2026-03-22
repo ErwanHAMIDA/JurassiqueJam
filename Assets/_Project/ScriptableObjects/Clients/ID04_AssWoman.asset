@@ -10,7 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c275273116f167c4fa1ffb373c198c8b, type: 3}
-  m_Name: Client3
+  m_Name: ID04_AssWoman
   m_EditorClassIdentifier: Assembly-CSharp::SO_Client
   _name: CLient3
   _sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  _clientOrigin: 2
+  _typesPreferences: 
+  _numberNeededType: 
+  _tagsPreferences: 
+  _numberNeededTag: 
