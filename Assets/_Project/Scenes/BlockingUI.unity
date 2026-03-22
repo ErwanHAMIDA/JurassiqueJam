@@ -4658,6 +4658,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542a025edb498044aa5563dff593659a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_DialogSystem
+--- !u!1 &1729290946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1729290948}
+  - component: {fileID: 1729290947}
+  m_Layer: 0
+  m_Name: MusicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1729290947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729290946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d882ae6acc10dec4082dc0f8e346cd0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_SFXManager
+  _SFXObject: {fileID: 3188971769095212395, guid: 40670bd4d21da264b8b40f5be6162f42, type: 3}
+--- !u!4 &1729290948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729290946}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 508.00647, y: 98.16442, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1792972133
 GameObject:
   m_ObjectHideFlags: 0
@@ -11462,3 +11507,4 @@ SceneRoots:
   - {fileID: 512584289}
   - {fileID: 2016926516}
   - {fileID: 1937867864}
+  - {fileID: 1729290948}
