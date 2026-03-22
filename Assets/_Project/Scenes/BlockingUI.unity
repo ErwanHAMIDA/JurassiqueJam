@@ -2045,6 +2045,11 @@ MonoBehaviour:
   _rotateSlider: {fileID: 420193037}
   _baseTexture: {fileID: 860829847}
   _secondTexture: {fileID: 0}
+  _audioClipList:
+  - {fileID: 8300000, guid: 9d4ca2517d004724eba20678fb71043d, type: 3}
+  - {fileID: 8300000, guid: b582b11a280bab6488458730f67c6df1, type: 3}
+  - {fileID: 8300000, guid: 56630300bda25ad40bb44fbd3f59c775, type: 3}
+  - {fileID: 8300000, guid: be6516bba8567f44c87e9f4189ee9711, type: 3}
 --- !u!4 &876774107
 Transform:
   m_ObjectHideFlags: 0
@@ -2271,6 +2276,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1729290947}
+        m_TargetAssemblyTypeName: S_SFXManager, Assembly-CSharp
+        m_MethodName: PlaySFXClip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 6b3b810f2f835a141a57cf2655eefd90, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4503,7 +4520,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1712310124}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1729290947}
+        m_TargetAssemblyTypeName: S_SFXManager, Assembly-CSharp
+        m_MethodName: PlaySFXClip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 6b3b810f2f835a141a57cf2655eefd90, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1712310124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4658,51 +4687,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542a025edb498044aa5563dff593659a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_DialogSystem
---- !u!1 &1729290946
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1729290948}
-  - component: {fileID: 1729290947}
-  m_Layer: 0
-  m_Name: MusicManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1729290947
+--- !u!114 &1729290947 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 145841642663688908, guid: 7725adc46dc8a4c4e8c15799dc989e46, type: 3}
+  m_PrefabInstance: {fileID: 8274977618940409393}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729290946}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d882ae6acc10dec4082dc0f8e346cd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_SFXManager
-  _SFXObject: {fileID: 3188971769095212395, guid: 40670bd4d21da264b8b40f5be6162f42, type: 3}
---- !u!4 &1729290948
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1729290946}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 508.00647, y: 98.16442, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1792972133
 GameObject:
   m_ObjectHideFlags: 0
@@ -7578,6 +7573,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: GameScene
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1729290947}
+        m_TargetAssemblyTypeName: S_SFXManager, Assembly-CSharp
+        m_MethodName: PlaySFXClip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 6b3b810f2f835a141a57cf2655eefd90, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4038534750735424421
@@ -10466,6 +10473,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &8274977618940409393
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1673174974127735470, guid: 7725adc46dc8a4c4e8c15799dc989e46, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 508.00647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673174974127735470, guid: 7725adc46dc8a4c4e8c15799dc989e46, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 98.16442
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673174974127735470, guid: 7725adc46dc8a4c4e8c15799dc989e46, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673174974127735470, guid: 7725adc46dc8a4c4e8c15799dc989e46, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673174974127735470, guid: 7725adc46dc8a4c4e8c15799dc989e46, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673174974127735470, guid: 7725adc46dc8a4c4e8c15799dc989e46, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673174974127735470, guid: 7725adc46dc8a4c4e8c15799dc989e46, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673174974127735470, guid: 7725adc46dc8a4c4e8c15799dc989e46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673174974127735470, guid: 7725adc46dc8a4c4e8c15799dc989e46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673174974127735470, guid: 7725adc46dc8a4c4e8c15799dc989e46, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136570566951000406, guid: 7725adc46dc8a4c4e8c15799dc989e46, type: 3}
+      propertyPath: m_Name
+      value: MusicManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7725adc46dc8a4c4e8c15799dc989e46, type: 3}
 --- !u!222 &8302787928884360486
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10655,6 +10719,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1729290947}
+        m_TargetAssemblyTypeName: S_SFXManager, Assembly-CSharp
+        m_MethodName: PlaySFXClip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 6b3b810f2f835a141a57cf2655eefd90, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -11507,4 +11583,4 @@ SceneRoots:
   - {fileID: 512584289}
   - {fileID: 2016926516}
   - {fileID: 1937867864}
-  - {fileID: 1729290948}
+  - {fileID: 8274977618940409393}

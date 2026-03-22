@@ -14,6 +14,7 @@ public class CraftManager : MonoBehaviour
     [SerializeField] private Slider _rotateSlider;
     [SerializeField] private Transform _baseTexture;
     [SerializeField] private Transform _secondTexture;
+    [SerializeField] private List<AudioClip> _audioClipList;
 
     private float _firstSizeX;
 
@@ -90,7 +91,15 @@ public class CraftManager : MonoBehaviour
             go_symbol.transform.localScale = scale;
             //go_symbol2.transform.localScale = scale;
             PlacedSymbols.Add(new PlacedSymbol { Id = _selectedSymbolId, Position = position, Scale = _scaleSlider.value });
+            S_SFXManager.Instance.PlayRandomClip(_audioClipList, transform, 1.0f);
         }
+    }
+
+    private AudioClip ChooseRandomClip()
+    {
+        int random = UnityEngine.Random.Range(0, _audioClipList.Count - 1);
+
+        return _audioClipList[random];
     }
 
     public void PlaceMaterial(Vector2 position)
