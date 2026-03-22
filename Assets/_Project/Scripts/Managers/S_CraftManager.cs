@@ -15,10 +15,12 @@ public class CraftManager : MonoBehaviour
     [SerializeField] private Transform _baseTexture;
     [SerializeField] private Transform _secondTexture;
     [SerializeField] private List<AudioClip> _audioClipList;
+    [SerializeField] private List<GameObject> _tabletList;
 
     private float _firstSizeX;
 
     private int _currentTabletIndex = 0;
+    private int _previousTabletIndex;
     const int NUM_TABLETS = 3;
 
     private int _selectedSymbolId = -1;
@@ -49,13 +51,26 @@ public class CraftManager : MonoBehaviour
 
     public void NextTablet()
     {
-        _currentTabletIndex = (_currentTabletIndex + 1) % NUM_TABLETS;
+        _previousTabletIndex = _currentTabletIndex;
+        _currentTabletIndex++;
+        if (_currentTabletIndex > NUM_TABLETS - 1) _currentTabletIndex = 0;
+        //_currentTabletIndex = (_currentTabletIndex + 1) % NUM_TABLETS;
+        UpdateTablet();
     }
 
     public void PreviousTablet()
     {
+        _previousTabletIndex = _currentTabletIndex;
         _currentTabletIndex--;
         if (_currentTabletIndex < 0) _currentTabletIndex = NUM_TABLETS - 1;
+
+        UpdateTablet();
+    }
+
+    private void UpdateTablet()
+    {
+        _tabletList[_previousTabletIndex].gameObject.SetActive(false);
+        _tabletList[_currentTabletIndex].gameObject.SetActive(true);
     }
 
     public void SelectSymbol(int id)
@@ -93,13 +108,6 @@ public class CraftManager : MonoBehaviour
             PlacedSymbols.Add(new PlacedSymbol { Id = _selectedSymbolId, Position = position, Scale = _scaleSlider.value });
             S_SFXManager.Instance.PlayRandomClip(_audioClipList, transform, 1.0f);
         }
-    }
-
-    private AudioClip ChooseRandomClip()
-    {
-        int random = UnityEngine.Random.Range(0, _audioClipList.Count - 1);
-
-        return _audioClipList[random];
     }
 
     public void PlaceMaterial(Vector2 position)
