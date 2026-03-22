@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Dattier
   _description: "Le dattier est un \xE9l\xE9ment de d\xE9cor que l'on retrouve chez
     les sum\xE9riens, akkadiens et assyriens."
-  _symbolPrefab: {fileID: 0}
+  _symbolPrefab: {fileID: 8037158186746630804, guid: e499d265834a426468c8c2554c311e14, type: 3}
   _isAvailable: 1
   _symbolType: 2
   _symbolOrigin: 000000000100000002000000

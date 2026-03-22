@@ -15,7 +15,7 @@ MonoBehaviour:
   _id: 12
   _name: Guerrier
   _description: Symbole akkadien de force et de puissance/
-  _symbolPrefab: {fileID: 0}
+  _symbolPrefab: {fileID: 8037158186746630804, guid: 5542ed5c28c084846bd610b9e94f3737, type: 3}
   _isAvailable: 1
   _symbolType: 1
   _symbolOrigin: 01000000

@@ -15,7 +15,7 @@ MonoBehaviour:
   _id: 0
   _name: "\xC9toile"
   _description: "Un symbole partag\xE9 qui renvoie \xE0 la divinit\xE9 au sens g\xE9n\xE9ral."
-  _symbolPrefab: {fileID: 7580795917399361997, guid: 115304d73bd060c43ba4a83af4ffc2ba, type: 3}
+  _symbolPrefab: {fileID: 3530219168004248784, guid: 91a2858c9fd1ac446a4c1f9c225d450d, type: 3}
   _isAvailable: 1
   _symbolType: 0
   _symbolOrigin: 000000000100000002000000

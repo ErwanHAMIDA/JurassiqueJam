@@ -15,7 +15,7 @@ MonoBehaviour:
   _id: 3
   _name: Lune et Soleil
   _description: "Symbole assyrien repr\xE9sentant l'unification et la puissance divine."
-  _symbolPrefab: {fileID: 0}
+  _symbolPrefab: {fileID: 6091821662498785348, guid: a2303f74eda7ac74d8a9ba5f9ce145f1, type: 3}
   _isAvailable: 1
   _symbolType: 0
   _symbolOrigin: 02000000

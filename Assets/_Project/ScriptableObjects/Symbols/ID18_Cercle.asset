@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Cercle
   _description: "Ceci est un cercle. Il d\xE9core principalement les corps des animaux,
     sauf le serpent."
-  _symbolPrefab: {fileID: 0}
+  _symbolPrefab: {fileID: 3530219168004248784, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
   _isAvailable: 1
   _symbolType: 2
   _symbolOrigin: 000000000100000002000000

@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Triangle
   _description: "Forme g\xE9om\xE9trique qui permet de cr\xE9er des frises d'encadrement
     pour les sum\xE9riens et les akkadiens."
-  _symbolPrefab: {fileID: 0}
+  _symbolPrefab: {fileID: 3530219168004248784, guid: f6284d8a2e4d00e4ebaade401ed77c0b, type: 3}
   _isAvailable: 1
   _symbolType: 2
   _symbolOrigin: 0000000001000000

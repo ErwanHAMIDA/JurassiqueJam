@@ -15,7 +15,7 @@ MonoBehaviour:
   _id: 15
   _name: "Carr\xE9 cr\xE9nel\xE9"
   _description: "Symbole rappelant les ziggurats pour les civilisations m\xE9sopotamiennes."
-  _symbolPrefab: {fileID: 0}
+  _symbolPrefab: {fileID: 8037158186746630804, guid: d6339c0f73406ab428e2050dc5322bf5, type: 3}
   _isAvailable: 1
   _symbolType: 2
   _symbolOrigin: 000000000100000002000000
