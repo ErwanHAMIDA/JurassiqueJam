@@ -24,6 +24,7 @@ public class SymbolButtonGenerator : MonoBehaviour
             symbolButton.GetComponent<Button>().onClick.AddListener(() => CraftManager.Instance.SelectSymbol(symbol._id));
             symbolButton.GetComponent<S_HoverInfo>()._hoverHelperName = symbol._name;
             symbolButton.GetComponent<S_HoverInfo>()._hoverHelperText = symbol._description;
+            
         }
     }
 }
