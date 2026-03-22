@@ -12,6 +12,9 @@ public class CraftManager : MonoBehaviour
     [SerializeField] private Slider _scaleSlider;
     [SerializeField] private Slider _rotateSlider;
     [SerializeField] private Transform _baseTexture;
+    [SerializeField] private Transform _secondTexture;
+
+    private float _firstSizeX;
 
     private int _currentTabletIndex = 0;
     const int NUM_TABLETS = 3;
@@ -33,6 +36,11 @@ public class CraftManager : MonoBehaviour
         { 
             Instance = this; 
         } 
+    }
+
+    private void Start()
+    {
+        _firstSizeX = _baseTexture.GetComponent<Renderer>().bounds.size.x / 2;
     }
 
     public void NextTablet()
@@ -98,5 +106,6 @@ public class CraftManager : MonoBehaviour
     public void MoveBaseTexture(float position)
     {
         _baseTexture.position = new Vector2(_baseTexture.position.x + position, _baseTexture.position.y);
+        _secondTexture.position = new Vector2(_baseTexture.position.x + position + _firstSizeX, _baseTexture.position.y);
     }
 }
