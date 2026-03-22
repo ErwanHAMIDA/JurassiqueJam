@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,10 +21,17 @@ public class SymbolButtonGenerator : MonoBehaviour
     {
         foreach (SO_Symbols symbol in symbols)
         {
+            //GameObject parent2 = Instantiate(_symbolButtonPrefab, parent);
+
+            //GameObject childImage = Instantiate(symbol._symbolPrefab, parent2.transform);
+            //childImage.gameObject.transform.localScale /= 2;
+
             GameObject symbolButton = Instantiate(_symbolButtonPrefab, parent);
             symbolButton.GetComponent<Button>().onClick.AddListener(() => CraftManager.Instance.SelectSymbol(symbol._id));
             symbolButton.GetComponent<S_HoverInfo>()._hoverHelperName = symbol._name;
             symbolButton.GetComponent<S_HoverInfo>()._hoverHelperText = symbol._description;
+            symbolButton.transform.GetChild(0).GetComponent<TMP_Text>().text = symbol._name;
+
             
         }
     }
