@@ -75,8 +75,25 @@ public class CraftManager : MonoBehaviour
 
     public void SelectSymbol(int id)
     {
+        UnselectMaterial();
+        if (id == _selectedSymbolId)
+        {
+            UnselectSymbol();
+            return;
+        }
         _selectedSymbolId = id;
         _symbolPrevisu.ChangeSymbol(SymbolManager.Instance.GetSymbolById(id)._symbolPrefab);
+    }
+
+    public void SelectMaterial(Sprite sprite)
+    {
+        UnselectSymbol();
+        _selectedMaterial = sprite;
+    }
+
+    private void UnselectMaterial()
+    {
+        _selectedMaterial = null;
     }
 
     public void ResizeSymbol()
@@ -94,6 +111,7 @@ public class CraftManager : MonoBehaviour
         _selectedSymbolId = -1;
         _scaleSlider.value = 0.1f;
         _rotateSlider.value = 0f;
+        _symbolPrevisu.ResetSymbol();
     }
 
     public void PlaceSymbol(Vector2 position, Vector3 scale, Quaternion rotation)
