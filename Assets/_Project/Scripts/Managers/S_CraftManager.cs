@@ -81,8 +81,11 @@ public class CraftManager : MonoBehaviour
     {
         if (_selectedSymbolId >= 0 && PlacedSymbols.Count < 128)
         {
+            //Vector2 secondPos = new Vector2(position.x - _baseTexture.GetComponent<Renderer>().bounds.size.x, position.y);
             GameObject go_symbol = Instantiate(SymbolManager.Instance.GetSymbolById(_selectedSymbolId)._symbolPrefab, position, rotation, _baseTexture);
+            //GameObject go_symbol2 = Instantiate(SymbolManager.Instance.GetSymbolById(_selectedSymbolId)._symbolPrefab, secondPos, rotation, _secondTexture);
             go_symbol.transform.localScale = scale;
+            //go_symbol2.transform.localScale = scale;
             PlacedSymbols.Add(new PlacedSymbol { Id = _selectedSymbolId, Position = position, Scale = _scaleSlider.value });
         }
     }
