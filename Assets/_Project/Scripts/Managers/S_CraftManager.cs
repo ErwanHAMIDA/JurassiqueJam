@@ -12,8 +12,9 @@ public class CraftManager : MonoBehaviour
     [SerializeField] private FollowCursor _symbolPrevisu;
     [SerializeField] private Slider _scaleSlider;
     [SerializeField] private Slider _rotateSlider;
-    [SerializeField] private Transform _baseTexture;
-    [SerializeField] private Transform _secondTexture;
+    [SerializeField] private RectTransform _baseTexture;
+    [SerializeField] private float _minimumRotation;
+    [SerializeField] private float _maximumRotation;
 
     private float _firstSizeX;
 
@@ -40,11 +41,6 @@ public class CraftManager : MonoBehaviour
         { 
             Instance = this; 
         } 
-    }
-
-    private void Start()
-    {
-        _firstSizeX = _baseTexture.GetComponent<Renderer>().bounds.size.x / 2;
     }
 
     public void NextTablet()
@@ -85,11 +81,8 @@ public class CraftManager : MonoBehaviour
     {
         if (_selectedSymbolId >= 0 && PlacedSymbols.Count < 128)
         {
-            //Vector2 secondPos = new Vector2(position.x - _baseTexture.GetComponent<Renderer>().bounds.size.x, position.y);
             GameObject go_symbol = Instantiate(SymbolManager.Instance.GetSymbolById(_selectedSymbolId)._symbolPrefab, position, rotation, _baseTexture);
-            //GameObject go_symbol2 = Instantiate(SymbolManager.Instance.GetSymbolById(_selectedSymbolId)._symbolPrefab, secondPos, rotation, _secondTexture);
             go_symbol.transform.localScale = scale;
-            //go_symbol2.transform.localScale = scale;
             PlacedSymbols.Add(new PlacedSymbol { Id = _selectedSymbolId, Position = position, Scale = _scaleSlider.value });
         }
     }
@@ -112,8 +105,7 @@ public class CraftManager : MonoBehaviour
 
     public void MoveBaseTexture(float position)
     {
-        _baseTexture.position = new Vector2(_baseTexture.position.x + position, _baseTexture.position.y);
-        _secondTexture.position = new Vector2(_baseTexture.position.x + position + _firstSizeX, _baseTexture.position.y);
+        _baseTexture.position = new Vector2(Mathf.Clamp(_baseTexture.position.x + position, _minimumRotation, _maximumRotation), _baseTexture.position.y);
     }
 
     public List<PlacedSymbol> GetPlacedSymbols()
