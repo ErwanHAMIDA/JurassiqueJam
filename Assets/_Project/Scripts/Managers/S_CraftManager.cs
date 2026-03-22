@@ -25,7 +25,6 @@ public class CraftManager : MonoBehaviour
 
     [NonSerialized] public Sprite _selectedMaterial;
 
-
     private List<PlacedSymbol> PlacedSymbols = new List<PlacedSymbol>();
 
     public static CraftManager Instance { get; private set; }
@@ -44,7 +43,7 @@ public class CraftManager : MonoBehaviour
 
     private void Start()
     {
-        _firstSizeX = _baseTexture.GetComponent<Renderer>().bounds.size.x / 2;
+        _firstSizeX = _baseTexture.GetComponent<RectTransform>().sizeDelta.x / 2;
     }
 
     public void NextTablet()

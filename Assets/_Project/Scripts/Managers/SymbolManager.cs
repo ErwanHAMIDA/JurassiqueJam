@@ -25,7 +25,7 @@ public class SymbolManager : MonoBehaviour
 
     private void Start()
     {
-        if (_buttonList.Count != _symbolList.Length) throw new ArgumentException("The quantity button or symbol number are not the same", nameof(_buttonList));
+        //if (_buttonList.Count != _symbolList.Length) throw new ArgumentException("The quantity button or symbol number are not the same", nameof(_buttonList));
         
         for (int i = 0; i < _buttonList.Count; i++)
         {
