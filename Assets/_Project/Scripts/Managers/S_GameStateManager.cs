@@ -1,12 +1,18 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class S_GameStateManager : MonoBehaviour
 {
 
+    public static S_GameStateManager Instance { get; private set; }
+
     [SerializeField] private GameObject _pauseMenuUI;
     [SerializeField] private GameObject _hubMenuUI;
     [SerializeField] private GameObject _craftMenuUI;
-    [SerializeField] private GameObject _craftManager;
+    [SerializeField] private GameObject _itemControlUI;
+    [SerializeField] private GameObject _backButtonUI;
+    [SerializeField] private GameObject _recipientUI;
+    [SerializeField] private GameObject _panelDialogUI;
 
     public enum GameState
     {
@@ -20,14 +26,20 @@ public class S_GameStateManager : MonoBehaviour
     }
 
     private GameState _previousGameState;
-    private GameState _currentGameState;
+    public GameState Current;
 
-    private bool _isPaused = true;
-
-    public void Start()
+    public void Awake()
     {
-        _currentGameState = GameState.PAUSEMENU;
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        }
     }
+
     public void ChangeState(int state)
     {
         _previousGameState = (GameState)state;
@@ -41,29 +53,31 @@ public class S_GameStateManager : MonoBehaviour
             case (int)GameState.SELECTCLIENT:
                 _hubMenuUI.SetActive(true);
                 _craftMenuUI.SetActive(false);
+                _panelDialogUI.SetActive(false);
                 break;
             case (int)GameState.CLIENTSPAWN:
-                
+                _panelDialogUI.SetActive(true);
                 break;
             case (int)GameState.WORKSHOPOVERVIEW:
                 _hubMenuUI.SetActive(false);
                 _craftMenuUI.SetActive(true);
-                _craftManager.SetActive(false);
+                _itemControlUI.SetActive(true);
+                _recipientUI.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+                _backButtonUI.SetActive(false);
                 break;
             case (int)GameState.ITEMCRAFTING:
-                _craftManager.SetActive(true);
+                _itemControlUI.SetActive(false);
+                _recipientUI.transform.localScale = Vector3.one;
+                _backButtonUI.SetActive(true);
                 break;
             case (int)GameState.ITEMDELIVERY:
                 _craftMenuUI.SetActive(false);
                 _hubMenuUI.SetActive(true);
-                _craftManager.SetActive(false);
                 break;
             case (int)GameState.REWARD:
                 break;
         }
 
-        _currentGameState = (GameState)state;
+        Current = (GameState)state;
     }
-
-    
 }
