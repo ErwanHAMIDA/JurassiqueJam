@@ -58,4 +58,19 @@ public class SymbolManager : MonoBehaviour
         Destroy(container);
         //Instantiate(SymbolContainer, _containerSpawnPoint)
     }
+
+    public List<SO_Symbols> GetSymbolsOfType(SO_Symbols.SymbolType type)
+    {
+        List<SO_Symbols> allSymbolsOfType = new List<SO_Symbols>();
+
+        foreach (SO_Symbols symbol in _symbolList)
+        {
+            if (symbol._symbolType == type)
+            {
+                allSymbolsOfType.Add(symbol);
+            }
+        }
+
+        return allSymbolsOfType;
+    }
 }
