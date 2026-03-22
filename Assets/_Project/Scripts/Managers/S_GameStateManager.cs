@@ -6,7 +6,6 @@ public class S_GameStateManager : MonoBehaviour
 
     public static S_GameStateManager Instance { get; private set; }
 
-    [SerializeField] private GameObject _pauseMenuUI;
     [SerializeField] private GameObject _hubMenuUI;
     [SerializeField] private GameObject _craftMenuUI;
     [SerializeField] private GameObject _itemControlUI;
@@ -46,10 +45,6 @@ public class S_GameStateManager : MonoBehaviour
         
         switch (state)
         {
-            case (int)GameState.PAUSEMENU:
-                _pauseMenuUI.SetActive(true);
-
-                break;
             case (int)GameState.SELECTCLIENT:
                 _hubMenuUI.SetActive(true);
                 _craftMenuUI.SetActive(false);
