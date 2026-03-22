@@ -10523,7 +10523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2136570566951000406, guid: 7725adc46dc8a4c4e8c15799dc989e46, type: 3}
       propertyPath: m_Name
-      value: MusicManager
+      value: SFXManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
