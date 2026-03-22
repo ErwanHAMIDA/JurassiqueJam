@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: CLient3
   _sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   _clientOrigin: 1
-  _typesPreferences: 
-  _numberNeededType: 
-  _tagsPreferences: 
-  _numberNeededTag: 
+  _typesPreferences: 01000000
+  _numberNeededType: 02000000
+  _tagsPreferences: 0000000003000000
+  _numberNeededTag: 0200000002000000
