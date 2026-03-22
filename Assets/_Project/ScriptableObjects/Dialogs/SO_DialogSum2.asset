@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad7c2fd176334084ab27291f4e6ce515, type: 3}
-  m_Name: SO_DialogClient1
+  m_Name: SO_DialogSum2
   m_EditorClassIdentifier: Assembly-CSharp::SO_ClientDialog
   _clientSentences:
-  - ggg
-  - eze
-  - vzvzvz
-  - ntt
+  - "Je veux rendre hommage \xE0 Inanna pour octroyer fertilit\xE9 et amour \xE0
+    mes descendants. N'h\xE9sitez pas non plus \xE0 d\xE9corer le r\xE9cipient, la
+    d\xE9esse m\xE9rite le meilleur."
