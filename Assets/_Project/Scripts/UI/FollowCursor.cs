@@ -92,6 +92,14 @@ public class FollowCursor : MonoBehaviour
         }
     }
 
+    public void ResetSymbol()
+    {
+        if (transform.childCount > 0)
+        {
+            Destroy(transform.GetChild(0).gameObject);
+        }
+    }
+
     public void ChangeScale(float scale)
     {
         transform.GetChild(0).localScale = Vector3.one * scale;
