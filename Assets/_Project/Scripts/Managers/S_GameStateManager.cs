@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class S_GameStateManager : MonoBehaviour
 {
@@ -8,6 +8,7 @@ public class S_GameStateManager : MonoBehaviour
 
     [SerializeField] private GameObject _hubMenuUI;
     [SerializeField] private GameObject _craftMenuUI;
+    [SerializeField] private GameObject _craftMenuBG;
     [SerializeField] private GameObject _itemControlUI;
     [SerializeField] private GameObject _backButtonUI;
     [SerializeField] private GameObject _recipientUI;
@@ -56,11 +57,13 @@ public class S_GameStateManager : MonoBehaviour
             case (int)GameState.WORKSHOPOVERVIEW:
                 _hubMenuUI.SetActive(false);
                 _craftMenuUI.SetActive(true);
+                _craftMenuBG.GetComponent<Image>().color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
                 _itemControlUI.SetActive(true);
                 _recipientUI.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
                 _backButtonUI.SetActive(false);
                 break;
             case (int)GameState.ITEMCRAFTING:
+                _craftMenuBG.GetComponent<Image>().color = new Vector4(0.33f, 0.33f, 0.33f, 1.0f);
                 _itemControlUI.SetActive(false);
                 _recipientUI.transform.localScale = Vector3.one;
                 _backButtonUI.SetActive(true);

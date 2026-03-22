@@ -1179,9 +1179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a9f1fc7d8c14b4ea3105378be54acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_GameStateManager
-  _pauseMenuUI: {fileID: 969769628725456445}
   _hubMenuUI: {fileID: 2047310169}
   _craftMenuUI: {fileID: 1088515738}
+  _craftMenuBG: {fileID: 616406518}
   _itemControlUI: {fileID: 1664747993}
   _backButtonUI: {fileID: 1254781619}
   _recipientUI: {fileID: 1227115563}
