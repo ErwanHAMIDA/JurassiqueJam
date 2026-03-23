@@ -48,6 +48,7 @@ public class FollowCursor : MonoBehaviour
 
             if (_isMoving)
             {
+                Debug.Log("Move");
                 CraftManager.Instance.MoveBaseTexture(Input.mousePosition.x - _lastPosition.x);
                 _lastPosition = Input.mousePosition;
             }
@@ -55,13 +56,13 @@ public class FollowCursor : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("Place Symbol");
             if (_isMoving)
             {
                 _isMoving = false;
             }
-            else if (_isOnRecipient)
+            else if (_isOnRecipient && transform.childCount > 0)
             {
+                Debug.Log("Place Symbol");
                 CraftManager.Instance.PlaceSymbol(Input.mousePosition, transform.GetChild(0).localScale, transform.GetChild(0).rotation);
             }
 
