@@ -10,7 +10,6 @@ public class S_HoverInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     [SerializeField] GameObject _textPanel;
     [SerializeField] TextMeshProUGUI _textMeshName;
     [SerializeField] TextMeshProUGUI _textMesh;
-    [SerializeField] Vector3 _offset;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -18,16 +17,23 @@ public class S_HoverInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _textMesh.gameObject.SetActive(true);
     }
 
+    void Update()
+    {
+        if (_textPanel.activeSelf)
+        {
+            _textPanel.transform.position = Input.mousePosition;
+        }
+    }    
+
     public void OnPointerExit(PointerEventData eventData)
     {
         _textPanel.SetActive(false);
         _textMesh.gameObject.SetActive(false);
     }
 
-    void OnEnable()
+    void Start()
     {
         _textMeshName.text = _hoverHelperName;
         _textMesh.text = _hoverHelperText;
-        _textPanel.gameObject.transform.position = gameObject.transform.position + _offset; // Could be with a emptyGameObject placed on scene, may be easier to place ?
     }
 }
