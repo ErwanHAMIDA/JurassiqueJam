@@ -775,7 +775,7 @@ MonoBehaviour:
   _backButtonUI: {fileID: 1254781619}
   _recipientUI: {fileID: 1227115563}
   _panelDialogUI: {fileID: 648524978137998231}
-  Current: 3
+  Current: 4
 --- !u!1001 &512584289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3651,10 +3651,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454f9e77484be6e4c8d2a82a986abd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _firstView: {fileID: 0}
-  _secondView: {fileID: 0}
-  _swapLimitPoint: {fileID: 0}
-  _swapSpawnPoint: {fileID: 0}
 --- !u!1 &1488379070
 GameObject:
   m_ObjectHideFlags: 0
@@ -4573,6 +4569,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 493906881}
+        m_TargetAssemblyTypeName: S_GameStateManager, Assembly-CSharp
+        m_MethodName: ChangeState
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
