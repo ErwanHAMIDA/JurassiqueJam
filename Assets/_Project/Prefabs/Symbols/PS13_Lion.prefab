@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7606655696316103697}
   - component: {fileID: 8210864055703537283}
   - component: {fileID: 6982851856481359164}
+  - component: {fileID: 3843258437722860892}
   m_Layer: 5
   m_Name: PS13_Lion
   m_TagString: Untagged
@@ -82,6 +83,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3843258437722860892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8037158186746630804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee6555b33b53e349acbe78e583f0c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_SymbolInfiniteMovement
 --- !u!1001 &551620072259569824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90,6 +103,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7606655696316103697}
     m_Modifications:
+    - target: {fileID: -1995258863609633951, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3530219168004248784, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
       propertyPath: m_Name
       value: PS18_Cercle (3)
@@ -192,6 +209,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7606655696316103697}
     m_Modifications:
+    - target: {fileID: -1995258863609633951, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3530219168004248784, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
       propertyPath: m_Name
       value: PS18_Cercle (5)
@@ -294,6 +315,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7606655696316103697}
     m_Modifications:
+    - target: {fileID: -1995258863609633951, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3530219168004248784, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
       propertyPath: m_Name
       value: PS18_Cercle (2)
@@ -396,6 +421,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7606655696316103697}
     m_Modifications:
+    - target: {fileID: -1995258863609633951, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3530219168004248784, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
       propertyPath: m_Name
       value: PS18_Cercle (1)
@@ -498,6 +527,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7606655696316103697}
     m_Modifications:
+    - target: {fileID: -1995258863609633951, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3530219168004248784, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
       propertyPath: m_Name
       value: PS18_Cercle (6)
@@ -600,6 +633,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7606655696316103697}
     m_Modifications:
+    - target: {fileID: -1995258863609633951, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3530219168004248784, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
       propertyPath: m_Name
       value: PS18_Cercle (4)
@@ -702,6 +739,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7606655696316103697}
     m_Modifications:
+    - target: {fileID: -1995258863609633951, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3530219168004248784, guid: 9fe1346ec464f1246bc7bdd2b5610a4c, type: 3}
       propertyPath: m_Name
       value: PS18_Cercle

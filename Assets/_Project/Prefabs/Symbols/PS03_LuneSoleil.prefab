@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5395111865050963341}
+  - component: {fileID: 7292799979565876167}
   m_Layer: 0
   m_Name: PS03_LuneSoleil
   m_TagString: Untagged
@@ -33,6 +34,18 @@ Transform:
   - {fileID: 3253420999188846886}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7292799979565876167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6091821662498785348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee6555b33b53e349acbe78e583f0c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_SymbolInfiniteMovement
 --- !u!1001 &6858328384231412302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41,6 +54,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5395111865050963341}
     m_Modifications:
+    - target: {fileID: -165520821468434836, guid: 3546c6da7f7d67d4c8f53ff630f6f4a7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3530219168004248784, guid: 3546c6da7f7d67d4c8f53ff630f6f4a7, type: 3}
       propertyPath: m_Name
       value: PS01_Lune
@@ -143,6 +160,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5395111865050963341}
     m_Modifications:
+    - target: {fileID: 396377192696182618, guid: 057623401471fa14b8f4b7d6316f520d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3530219168004248784, guid: 057623401471fa14b8f4b7d6316f520d, type: 3}
       propertyPath: m_Name
       value: PS02_Soleil

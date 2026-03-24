@@ -107,5 +107,25 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8806598865234805768, guid: 326382f0bd187bc40a273784236f397c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -9084527881899465340}
   m_SourcePrefab: {fileID: 100100000, guid: 326382f0bd187bc40a273784236f397c, type: 3}
+--- !u!1 &3530219168004248784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8806598865234805768, guid: 326382f0bd187bc40a273784236f397c, type: 3}
+  m_PrefabInstance: {fileID: 5389270138057314520}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-9084527881899465340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3530219168004248784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee6555b33b53e349acbe78e583f0c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_SymbolInfiniteMovement

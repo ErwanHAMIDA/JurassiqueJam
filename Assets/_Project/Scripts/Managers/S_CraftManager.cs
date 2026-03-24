@@ -12,11 +12,11 @@ public class CraftManager : MonoBehaviour
     [SerializeField] private FollowCursor _symbolPrevisu;
     [SerializeField] private Slider _scaleSlider;
     [SerializeField] private Slider _rotateSlider;
-    [SerializeField] private Transform _baseTexture;
+    public Transform _baseTexture;
     [SerializeField] private List<AudioClip> _audioClipList;
     [SerializeField] private List<GameObject> _tabletList;
-    [SerializeField] private float _minimumRotation;
-    [SerializeField] private float _maximumRotation;
+    public float _minimumRotation;
+    public float _maximumRotation;
 
     private float _firstSizeX;
 
@@ -143,7 +143,7 @@ public class CraftManager : MonoBehaviour
 
     public void MoveBaseTexture(float position)
     {
-        _baseTexture.position = new Vector2(Mathf.Clamp(_baseTexture.position.x + position, _minimumRotation, _maximumRotation), _baseTexture.position.y);
+        _baseTexture.position = new Vector2(_baseTexture.position.x + position, _baseTexture.position.y);
     }
 
     public List<PlacedSymbol> GetPlacedSymbols()
