@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: 7
   _name: Camomille
   _description: La fleur de camomille est un symbole rituel assyrien.
+  _symbolSprite: {fileID: 21300000, guid: f2a48116f2346094d84fe664ca89c31a, type: 3}
   _symbolPrefab: {fileID: 8037158186746630804, guid: 1d4fa25e4e8c04b41a78e64afb35a4a8, type: 3}
   _isAvailable: 1
   _symbolType: 1

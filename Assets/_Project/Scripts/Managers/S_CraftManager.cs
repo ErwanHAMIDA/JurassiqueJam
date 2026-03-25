@@ -76,9 +76,9 @@ public class CraftManager : MonoBehaviour
     public void SelectSymbol(int id)
     {
         UnselectMaterial();
+        UnselectSymbol();
         if (id == _selectedSymbolId)
         {
-            UnselectSymbol();
             return;
         }
         _selectedSymbolId = id;

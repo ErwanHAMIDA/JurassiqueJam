@@ -16,6 +16,7 @@ MonoBehaviour:
   _name: "Arbre Sacr\xE9"
   _description: "Symbole sacr\xE9 assyrien qui renvoie \xE0 la fertilit\xE9 et la
     vie."
+  _symbolSprite: {fileID: 21300000, guid: 7ef25aba38ea57b45ad229c97f083928, type: 3}
   _symbolPrefab: {fileID: 8037158186746630804, guid: 7bd9426a5ea1f5149a2f8b6958bc92e7, type: 3}
   _isAvailable: 1
   _symbolType: 1

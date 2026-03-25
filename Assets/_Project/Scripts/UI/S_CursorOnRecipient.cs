@@ -17,6 +17,7 @@ public class S_CursorOnRecipient : MonoBehaviour, IPointerEnterHandler, IPointer
         if (S_GameStateManager.Instance.Current != S_GameStateManager.GameState.ITEMCRAFTING)
         {
             S_GameStateManager.Instance.ChangeState((int)S_GameStateManager.GameState.ITEMCRAFTING);
+            _followCursor.ChangeState(true);
         }
     }
 

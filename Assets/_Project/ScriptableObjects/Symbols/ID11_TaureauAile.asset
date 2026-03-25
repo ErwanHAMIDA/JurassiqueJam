@@ -16,6 +16,7 @@ MonoBehaviour:
   _name: "Taureau ail\xE9"
   _description: "Taureau \xE0 t\xEAte humaine poss\xE9dant des ailes, il est un symbole
     assyrien de protection."
+  _symbolSprite: {fileID: 21300000, guid: fbf9ff05802b3714dbd57e4ae7ed5223, type: 3}
   _symbolPrefab: {fileID: 8037158186746630804, guid: 159352129c595c842bcc26a0d98b437a, type: 3}
   _isAvailable: 1
   _symbolType: 1
