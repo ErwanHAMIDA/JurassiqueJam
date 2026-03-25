@@ -12,7 +12,7 @@ public class SymbolButtonGenerator : MonoBehaviour
 
     void Start()
     {
-        SetupButton(SymbolManager.Instance.GetSymbolsOfType(SO_Symbols.SymbolType.Divine), _divineCodex);        foreach (SO_Symbols symbol in SymbolManager.Instance.GetSymbolsOfType(SO_Symbols.SymbolType.Divine))
+        SetupButton(SymbolManager.Instance.GetSymbolsOfType(SO_Symbols.SymbolType.Divine), _divineCodex);
         SetupButton(SymbolManager.Instance.GetSymbolsOfType(SO_Symbols.SymbolType.Ritual), _ritualCodex);
         SetupButton(SymbolManager.Instance.GetSymbolsOfType(SO_Symbols.SymbolType.Esthetic), _estheticCodex);
     }
@@ -30,7 +30,7 @@ public class SymbolButtonGenerator : MonoBehaviour
             symbolButton.GetComponent<Button>().onClick.AddListener(() => CraftManager.Instance.SelectSymbol(symbol._id));
             symbolButton.GetComponent<S_HoverInfo>()._hoverHelperName = symbol._name;
             symbolButton.GetComponent<S_HoverInfo>()._hoverHelperText = symbol._description;
-            symbolButton.transform.GetChild(0).GetComponent<TMP_Text>().text = symbol._name;
+            symbolButton.GetComponent<Image>().sprite = symbol._symbolSprite;
 
             
         }

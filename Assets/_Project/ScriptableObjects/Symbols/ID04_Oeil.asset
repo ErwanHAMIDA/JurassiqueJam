@@ -16,6 +16,7 @@ MonoBehaviour:
   _name: "\u0152il"
   _description: "L'\u0153il protecteur, avec sa pupille en Lapis Lazuli, est un symbole
     divin qui prot\xE8ge ceux sous son regard."
+  _symbolSprite: {fileID: 21300000, guid: 43249beff03f9174195cd65866ff9016, type: 3}
   _symbolPrefab: {fileID: 6091821662498785348, guid: 4203b2f7a739651488e476987f519afb, type: 3}
   _isAvailable: 1
   _symbolType: 0

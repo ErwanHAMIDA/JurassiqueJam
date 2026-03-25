@@ -15,11 +15,11 @@ public class S_SymbolInfiniteMovement : MonoBehaviour
     {
         if (transform.position.x < _minimumRotation)
         {
-            transform.position = new Vector3(_maximumRotation, transform.position.y, transform.position.z);
+            transform.position = new Vector3(_maximumRotation + (transform.position.x - _minimumRotation) , transform.position.y, transform.position.z);
         }
         else if (transform.position.x > _maximumRotation)
         {
-            transform.position = new Vector3(_minimumRotation, transform.position.y, transform.position.z);
+            transform.position = new Vector3(_minimumRotation + (transform.position.x - _maximumRotation), transform.position.y, transform.position.z);
         }
     }
 }

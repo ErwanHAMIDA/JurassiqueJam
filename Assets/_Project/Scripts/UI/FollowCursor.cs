@@ -8,23 +8,19 @@ public class FollowCursor : MonoBehaviour
     //[SerializeField] private GameObject _swapLimitPoint;
     //[SerializeField] private GameObject _swapSpawnPoint;
 
+    [SerializeField] private float movingThreshold = 5.0f;
+    [SerializeField] private Transform _previsuZone;
     private bool _isOnRecipient = false;
     private bool _isClicking = false;
     private bool _isMoving = false;
-    private RectTransform _rectTransform;
     private Vector2 _startPosition;
     private Vector2 _lastPosition;
-
-    void Start()
-    {
-        _rectTransform = GetComponent<RectTransform>();
-    }
 
     void Update()
     {
         if (!_isOnRecipient)
         {
-            _rectTransform.localPosition = Vector3.zero;   
+            transform.position = Vector2.one * 1000.0f;   
         }
         else
         {
@@ -41,7 +37,7 @@ public class FollowCursor : MonoBehaviour
 
         if (Input.GetMouseButton(0) && _isClicking)
         {
-            if (Vector2.Distance(_startPosition, Input.mousePosition) > 0.1f)
+            if (Vector2.Distance(_startPosition, Input.mousePosition) > movingThreshold)
             {
                 _isMoving = true;
             }
@@ -60,7 +56,7 @@ public class FollowCursor : MonoBehaviour
             {
                 _isMoving = false;
             }
-            else if (_isOnRecipient && transform.childCount > 0)
+            else if (_isOnRecipient && transform.childCount > 0 && _isClicking)
             {
                 Debug.Log("Place Symbol");
                 CraftManager.Instance.PlaceSymbol(Input.mousePosition, transform.GetChild(0).localScale, transform.GetChild(0).rotation);
@@ -75,9 +71,11 @@ public class FollowCursor : MonoBehaviour
         if (transform.childCount > 0)
         {
             Destroy(transform.GetChild(0).gameObject);
+            Destroy(_previsuZone.GetChild(0).gameObject);
         }
 
         GameObject newSymbol = Instantiate(symbol, transform.position, Quaternion.identity, transform);
+        Instantiate(symbol, _previsuZone.position, Quaternion.identity, _previsuZone);
 
         if (newSymbol.TryGetComponent<Image>(out Image image))
         {
@@ -98,17 +96,26 @@ public class FollowCursor : MonoBehaviour
         if (transform.childCount > 0)
         {
             Destroy(transform.GetChild(0).gameObject);
+            Destroy(_previsuZone.GetChild(0).gameObject);
         }
     }
 
     public void ChangeScale(float scale)
     {
-        transform.GetChild(0).localScale = Vector3.one * scale;
+        if (transform.childCount > 0)
+        {
+            transform.GetChild(0).localScale = Vector3.one * scale;
+            _previsuZone.GetChild(0).localScale = Vector3.one * scale;
+        }
     }
 
     public void ChangeRotation(float rotation)
     {
-        transform.GetChild(0).eulerAngles = new Vector3 (0,0,rotation);
+        if (transform.childCount > 0)
+        {
+            transform.GetChild(0).eulerAngles = new Vector3 (0,0,rotation);
+            _previsuZone.GetChild(0).eulerAngles = new Vector3 (0,0,rotation);
+        }
     }
 
     public void ChangeState(bool onRecipient)

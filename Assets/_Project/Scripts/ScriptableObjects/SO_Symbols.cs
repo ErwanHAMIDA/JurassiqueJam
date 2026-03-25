@@ -7,6 +7,7 @@ public class SO_Symbols : ScriptableObject
     public int _id;
     public string _name;
     public string _description;
+    public Sprite _symbolSprite;
     public GameObject _symbolPrefab;
     public bool _isAvailable;
 

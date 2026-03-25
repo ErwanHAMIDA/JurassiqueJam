@@ -15,6 +15,7 @@ MonoBehaviour:
   _id: 1
   _name: Lune
   _description: "Symbole sum\xE9rien repr\xE9sentant le dieu-Lune."
+  _symbolSprite: {fileID: 21300000, guid: e64249faffeb68a45be8ebaaa84f4312, type: 3}
   _symbolPrefab: {fileID: 3530219168004248784, guid: 3546c6da7f7d67d4c8f53ff630f6f4a7, type: 3}
   _isAvailable: 1
   _symbolType: 0
