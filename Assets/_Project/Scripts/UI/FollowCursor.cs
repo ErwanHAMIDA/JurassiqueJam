@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class FollowCursor : MonoBehaviour
 {
-    [SerializeField] private GameObject _firstView;
-    [SerializeField] private GameObject _secondView;
-    [SerializeField] private GameObject _swapLimitPoint;
-    [SerializeField] private GameObject _swapSpawnPoint;
+    //[SerializeField] private GameObject _firstView;
+    //[SerializeField] private GameObject _secondView;
+    //[SerializeField] private GameObject _swapLimitPoint;
+    //[SerializeField] private GameObject _swapSpawnPoint;
 
     private bool _isOnRecipient = false;
     private bool _isClicking = false;
