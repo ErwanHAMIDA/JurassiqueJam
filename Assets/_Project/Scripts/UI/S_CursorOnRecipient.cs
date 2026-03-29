@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class S_CursorOnRecipient : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField] private FollowCursor _followCursor;
+    [SerializeField] private GameObject _zoomedUI;
 
 	void Start () 
 	{
@@ -18,6 +19,7 @@ public class S_CursorOnRecipient : MonoBehaviour, IPointerEnterHandler, IPointer
         {
             S_GameStateManager.Instance.ChangeState((int)S_GameStateManager.GameState.ITEMCRAFTING);
             _followCursor.ChangeState(true);
+            _zoomedUI.SetActive(true);
         }
     }
 
