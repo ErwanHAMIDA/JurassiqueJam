@@ -27,7 +27,11 @@ public class CraftManager : MonoBehaviour
     private int _selectedSymbolId = -1;
     private int _selectedMaterialId = -1;
 
+    [Header("Materials")]
     [NonSerialized] public Sprite _selectedMaterial;
+    [SerializeField] private Sprite[] _materialList;
+    [SerializeField] private Texture2D[] _materialCursors;
+
 
     private List<PlacedSymbol> PlacedSymbols = new List<PlacedSymbol>();
 
@@ -76,24 +80,26 @@ public class CraftManager : MonoBehaviour
     public void SelectSymbol(int id)
     {
         UnselectMaterial();
-        UnselectSymbol();
         if (id == _selectedSymbolId)
         {
+            UnselectSymbol();
             return;
         }
+        UnselectSymbol();
         _selectedSymbolId = id;
         _symbolPrevisu.ChangeSymbol(SymbolManager.Instance.GetSymbolById(id)._symbolPrefab);
     }
 
-    public void SelectMaterial(Sprite sprite)
+    public void SelectMaterial(int id)
     {
+        if (_selectedMaterial == _materialList[id])
+        {
+            UnselectMaterial();
+            return;
+        }
         UnselectSymbol();
-        _selectedMaterial = sprite;
-    }
-
-    private void UnselectMaterial()
-    {
-        _selectedMaterial = null;
+        ChangeCursor(_materialCursors[id]);
+        _selectedMaterial = _materialList[id];
     }
 
     public void ResizeSymbol()
@@ -106,12 +112,29 @@ public class CraftManager : MonoBehaviour
         _symbolPrevisu.ChangeRotation(_rotateSlider.value * 360);
     }
 
+    private void UnselectMaterial()
+    {
+        _selectedMaterial = null;
+        ResetCursor();
+    }
+
     public void UnselectSymbol()
     {
+        ResetCursor();
         _selectedSymbolId = -1;
         _scaleSlider.value = 0.1f;
         _rotateSlider.value = 0f;
         _symbolPrevisu.ResetSymbol();
+    }
+
+    public void ChangeCursor(Texture2D texture)
+    {
+        Cursor.SetCursor(texture, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void ResetCursor()
+    {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
     public void PlaceSymbol(Vector2 position, Vector3 scale, Quaternion rotation)
