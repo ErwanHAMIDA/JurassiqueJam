@@ -2175,6 +2175,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 763ac5a34c5f79c4cba91748f72ec8b2, type: 3}
   - {fileID: 2800000, guid: cb201343698f9654e9b996f925af4525, type: 3}
   - {fileID: 2800000, guid: 2d12f75e3ae93a342b8facca0d154cb3, type: 3}
+  _resetRecipientEventChannel: {fileID: 11400000, guid: 53b4947b7c1e0aa8babe4e1401673ab2, type: 2}
 --- !u!4 &876774107
 Transform:
   m_ObjectHideFlags: 0
@@ -6709,18 +6710,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SymbolManager, Assembly-CSharp
-        m_MethodName: ResetSymbolContainer
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: GameScene
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1729290947}
         m_TargetAssemblyTypeName: S_SFXManager, Assembly-CSharp
         m_MethodName: PlaySFXClip
@@ -6728,6 +6717,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: 6b3b810f2f835a141a57cf2655eefd90, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 53b4947b7c1e0aa8babe4e1401673ab2, type: 2}
+        m_TargetAssemblyTypeName: SO_VoidEventChannel, Assembly-CSharp
+        m_MethodName: RaiseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
