@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class S_ClientManager : MonoBehaviour
     [SerializeField] GameObject _clientDialogPanel;
     [SerializeField] Transform _spawnPoint;
     [SerializeField] GameObject _clientImage;
-
+    
     public static S_ClientManager Instance { get; private set; }
 
     public enum ClientSatisfaction
@@ -21,6 +22,7 @@ public class S_ClientManager : MonoBehaviour
     }
 
     private int _clientId;
+    public SO_Client CurrentClient => _clientList[_clientId];
 
     public void SelectClient(int index)
     {
@@ -43,6 +45,7 @@ public class S_ClientManager : MonoBehaviour
     public ClientSatisfaction CompareItem()
     {
         List<PlacedSymbol> placedSymbols = CraftManager.Instance.GetPlacedSymbols();
+        
         int currentSymbolNumber = placedSymbols.Count;
         int clientPreferencesTypes = _clientList[_clientId]._typesPreferences.Length;
         int clientPreferencesTags = _clientList[_clientId]._tagsPreferences.Length;
@@ -70,6 +73,7 @@ public class S_ClientManager : MonoBehaviour
 
         for (int i = 0; i < currentTypes.Length; i++)
         {
+            // FIXME: IndexOutOfRangeException: Index was outside the bounds of the array.
             if (currentTypes[i] > _clientList[_clientId]._numberNeededType[i])
                 score++;
             else if (currentTypes[i] < _clientList[_clientId]._numberNeededType[i] / 3)
@@ -109,5 +113,15 @@ public class S_ClientManager : MonoBehaviour
             return ClientSatisfaction.Unhappy;
         else
             return ClientSatisfaction.Sad;
+    }
+    
+    public void HandleStateEnter(int state)
+    {
+        switch (state)
+        {
+            case (int)S_GameStateManager.GameState.ITEMDELIVERY:
+                CurrentClient.Satisfaction = CompareItem();
+                break;
+        }
     }
 }

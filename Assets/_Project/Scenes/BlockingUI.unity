@@ -1108,6 +1108,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a9f1fc7d8c14b4ea3105378be54acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_GameStateManager
+  OnStateEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1300117767}
+        m_TargetAssemblyTypeName: S_ClientManager, Assembly-CSharp
+        m_MethodName: HandleStateEnter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStateExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 876774106}
+        m_TargetAssemblyTypeName: CraftManager, Assembly-CSharp
+        m_MethodName: HandleStateExit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _hubMenuUI: {fileID: 2047310169}
   _craftMenuUI: {fileID: 1088515738}
   _craftMenuBG: {fileID: 616406518}
@@ -1115,7 +1145,7 @@ MonoBehaviour:
   _backButtonUI: {fileID: 1254781619}
   _recipientUI: {fileID: 1227115563}
   _panelDialogUI: {fileID: 648524978137998231}
-  Current: 3
+  Current: 1
 --- !u!1001 &512584289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2586,6 +2616,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 763ac5a34c5f79c4cba91748f72ec8b2, type: 3}
   - {fileID: 2800000, guid: cb201343698f9654e9b996f925af4525, type: 3}
   - {fileID: 2800000, guid: 2d12f75e3ae93a342b8facca0d154cb3, type: 3}
+  _stateMachine: {fileID: 0}
 --- !u!4 &876774107
 Transform:
   m_ObjectHideFlags: 0
@@ -3002,7 +3033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1088515739
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4269,6 +4300,10 @@ PrefabInstance:
       propertyPath: _clientImage
       value: 
       objectReference: {fileID: 6398039060133768200}
+    - target: {fileID: 3678877423829958501, guid: 0af9cf411bd8afb418093cf918a6c27e, type: 3}
+      propertyPath: _stateMachine
+      value: 
+      objectReference: {fileID: 493906881}
     - target: {fileID: 3678877423829958501, guid: 0af9cf411bd8afb418093cf918a6c27e, type: 3}
       propertyPath: _clientDialogPanel
       value: 
@@ -6398,7 +6433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2047310170
 RectTransform:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
-using NUnit.Framework;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SO_Client", menuName = "Scriptable Objects/SO_Client")]
@@ -15,4 +14,7 @@ public class SO_Client : ScriptableObject
 
     public SO_Symbols.SymbolTag[] _tagsPreferences;
     public int[] _numberNeededTag;
+
+    [NonSerialized]
+    public S_ClientManager.ClientSatisfaction Satisfaction;
 }

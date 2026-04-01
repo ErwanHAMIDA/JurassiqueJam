@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class S_GameStateManager : MonoBehaviour
@@ -13,7 +14,7 @@ public class S_GameStateManager : MonoBehaviour
     [SerializeField] private GameObject _backButtonUI;
     [SerializeField] private GameObject _recipientUI;
     [SerializeField] private GameObject _panelDialogUI;
-
+    
     public enum GameState
     {
         PAUSEMENU,
@@ -27,6 +28,9 @@ public class S_GameStateManager : MonoBehaviour
 
     private GameState _previousGameState;
     public GameState Current;
+
+    public UnityEvent<int> OnStateEnter;
+    public UnityEvent<int> OnStateExit;
 
     public void Awake()
     {
@@ -42,6 +46,8 @@ public class S_GameStateManager : MonoBehaviour
 
     public void ChangeState(int state)
     {
+        OnStateExit?.Invoke((int)Current);
+        
         _previousGameState = (GameState)state;
         
         switch (state)
@@ -71,11 +77,14 @@ public class S_GameStateManager : MonoBehaviour
             case (int)GameState.ITEMDELIVERY:
                 _craftMenuUI.SetActive(false);
                 _hubMenuUI.SetActive(true);
+                ChangeState((int)GameState.SELECTCLIENT);
                 break;
             case (int)GameState.REWARD:
                 break;
         }
-
+        
         Current = (GameState)state;
+        
+        OnStateEnter?.Invoke((int)Current);
     }
 }
