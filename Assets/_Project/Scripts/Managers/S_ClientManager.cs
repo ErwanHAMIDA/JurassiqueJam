@@ -45,11 +45,16 @@ public class S_ClientManager : MonoBehaviour
 
     public ClientSatisfaction CompareItem()
     {
-        List<PlacedSymbol> placedSymbols = CraftManager.Instance.GetPlacedSymbols();
-        
+        List<SO_Symbols> placedSymbols = CraftManager.Instance.GetPlacedSymbols().Select(symbol => SymbolManager.Instance.GetSymbolById(symbol.Id)).ToList();
+
+        return CalculateClientSatisfaction(placedSymbols, _clientList[_clientId]);
+    }
+
+    public static ClientSatisfaction CalculateClientSatisfaction(List<SO_Symbols> placedSymbols, SO_Client client)
+    {
         int currentSymbolNumber = placedSymbols.Count;
-        int clientPreferencesTypes = _clientList[_clientId]._typesPreferences.Length;
-        int clientPreferencesTags = _clientList[_clientId]._tagsPreferences.Length;
+        int clientPreferencesTypes = client._typesPreferences.Length;
+        int clientPreferencesTags = client._tagsPreferences.Length;
 
         int score = 0;
 
@@ -60,12 +65,12 @@ public class S_ClientManager : MonoBehaviour
         int[] currentTags = new int[clientPreferencesTags];
 
         // Check client prefered types
-        for (int i = 0; i < _clientList[_clientId]._typesPreferences.Length; i++)
+        for (int i = 0; i < client._typesPreferences.Length; i++)
         {
             for (int j = 0; j < currentSymbolNumber; j++)
             {
-                SO_Symbols currentSymbol = SymbolManager.Instance.GetSymbolById(placedSymbols[i].Id);
-                if (currentSymbol._symbolType == _clientList[_clientId]._typesPreferences[i] && currentSymbol._symbolOrigin.Contains(_clientList[_clientId]._clientOrigin))
+                SO_Symbols currentSymbol = placedSymbols[i];
+                if (currentSymbol._symbolType == client._typesPreferences[i] && currentSymbol._symbolOrigin.Contains(client._clientOrigin))
                 {
                     currentTypes[i]++;
                 }
@@ -75,21 +80,21 @@ public class S_ClientManager : MonoBehaviour
         for (int i = 0; i < currentTypes.Length; i++)
         {
             // FIXME: IndexOutOfRangeException: Index was outside the bounds of the array.
-            if (currentTypes[i] > _clientList[_clientId]._numberNeededType[i])
+            if (currentTypes[i] > client._numberNeededType[i])
                 score++;
-            else if (currentTypes[i] < _clientList[_clientId]._numberNeededType[i] / 3)
+            else if (currentTypes[i] < client._numberNeededType[i] / 3)
             {
                 score--;
             }
         }
 
         // Check client prefered tags
-        for (int i = 0; i < _clientList[_clientId]._tagsPreferences.Length; i++)
+        for (int i = 0; i < client._tagsPreferences.Length; i++)
         {
             for (int j = 0; j < currentSymbolNumber; j++)
             {
-                SO_Symbols currentSymbol = SymbolManager.Instance.GetSymbolById(placedSymbols[i].Id);
-                if (currentSymbol._symbolTags.Contains(_clientList[_clientId]._tagsPreferences[i]) && currentSymbol._symbolOrigin.Contains(_clientList[_clientId]._clientOrigin))
+                SO_Symbols currentSymbol = placedSymbols[i];
+                if (currentSymbol._symbolTags.Contains(client._tagsPreferences[i]) && currentSymbol._symbolOrigin.Contains(client._clientOrigin))
                 {
                     currentTags[i]++;
                 }
@@ -98,9 +103,9 @@ public class S_ClientManager : MonoBehaviour
 
         for (int i = 0; i < currentTags.Length; i++)
         {
-            if (currentTags[i] > _clientList[_clientId]._numberNeededTag[i])
+            if (currentTags[i] > client._numberNeededTag[i])
                 score++;
-            else if (currentTags[i] < _clientList[_clientId]._numberNeededTag[i] / 3)
+            else if (currentTags[i] < client._numberNeededTag[i] / 3)
             {
                 score--;
             }            
