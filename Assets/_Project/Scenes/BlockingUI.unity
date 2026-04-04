@@ -3041,7 +3041,7 @@ GameObject:
   - component: {fileID: 1089239509}
   - component: {fileID: 1089239508}
   m_Layer: 5
-  m_Name: HelpPanel
+  m_Name: HelpPanelBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4622,6 +4622,7 @@ GameObject:
   - component: {fileID: 1393143661}
   - component: {fileID: 1393143663}
   - component: {fileID: 1393143662}
+  - component: {fileID: 1393143664}
   m_Layer: 5
   m_Name: HelpPanel
   m_TagString: Untagged
@@ -4687,6 +4688,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393143660}
   m_CullTransparentMesh: 1
+--- !u!114 &1393143664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393143660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f468a2e4a5b19044853a738c326fdd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_HelpManager
+  _helpTextMesh: {fileID: 2489305}
+  _dialogSystem: {fileID: 1727593969}
 --- !u!1 &1451372487
 GameObject:
   m_ObjectHideFlags: 0
@@ -5152,10 +5167,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1089239507}
+  - {fileID: 1864279754}
   - {fileID: 2025475575550673536}
   - {fileID: 4578672725391682741}
-  - {fileID: 1864279754}
-  - {fileID: 1089239507}
   m_Father: {fileID: 1722957522}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6101,6 +6116,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 1089239506}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1393143664}
+        m_TargetAssemblyTypeName: S_HelpManager, Assembly-CSharp
+        m_MethodName: UpdateText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
