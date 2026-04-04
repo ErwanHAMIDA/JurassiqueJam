@@ -6,6 +6,7 @@ public class S_CursorOnRecipient : MonoBehaviour, IPointerEnterHandler, IPointer
 {
     [SerializeField] private FollowCursor _followCursor;
     [SerializeField] private GameObject _zoomedUI;
+    [SerializeField] private GameObject _commandReminderButton;
 
 	void Start () 
 	{
@@ -20,6 +21,7 @@ public class S_CursorOnRecipient : MonoBehaviour, IPointerEnterHandler, IPointer
             S_GameStateManager.Instance.ChangeState((int)S_GameStateManager.GameState.ITEMCRAFTING);
             _followCursor.ChangeState(true);
             _zoomedUI.SetActive(true);
+            _commandReminderButton.SetActive(true);
         }
     }
 
