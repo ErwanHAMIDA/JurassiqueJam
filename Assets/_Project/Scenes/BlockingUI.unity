@@ -4123,6 +4123,7 @@ GameObject:
   - component: {fileID: 1412020615}
   - component: {fileID: 1412020618}
   - component: {fileID: 1412020617}
+  - component: {fileID: 1412020619}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -4161,7 +4162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 357a70c42abe0864ca10c8e78bb6ab0f, type: 2}
   m_Color: {r: 0, g: 0, b: 0, a: 0.49019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -4187,6 +4188,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412020614}
   m_CullTransparentMesh: 1
+--- !u!114 &1412020619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412020614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb82a1f3b98eaa64a9b8aeb5134bcd34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShaderBasedRaycast
+  image: {fileID: 1412020617}
+  mainTex: {fileID: 2800000, guid: d9f686721e0b1e2458136172c7a889b3, type: 3}
+  maskTex: {fileID: 2800000, guid: ccd6f08c2d3aff14b87cc5c529f8d096, type: 3}
+  isInverted: 0
+  alphaThreshold: 0.1
 --- !u!1 &1451372487
 GameObject:
   m_ObjectHideFlags: 0
