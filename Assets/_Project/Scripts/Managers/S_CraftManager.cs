@@ -53,7 +53,7 @@ public class CraftManager : MonoBehaviour
 
     public void ResetItem()
     {
-        PlacedSymbols.RemoveRange(0, PlacedSymbols.Count);
+        PlacedSymbols.Clear();
         
         for (int i = 0; i < _baseTexture.childCount; i++)
         {
