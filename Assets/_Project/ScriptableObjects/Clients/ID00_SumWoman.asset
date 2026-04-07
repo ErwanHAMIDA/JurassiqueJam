@@ -19,4 +19,4 @@ MonoBehaviour:
   _numberNeededType: 02000000
   _tagsPreferences: 050000000200000007000000
   _numberNeededTag: 010000000100000001000000
-  Satisfaction: 3
+  _satisfaction: 3
