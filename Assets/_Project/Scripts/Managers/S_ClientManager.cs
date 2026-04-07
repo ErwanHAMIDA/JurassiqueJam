@@ -55,8 +55,8 @@ public class S_ClientManager : MonoBehaviour
         int maxScore = clientPreferencesTypes + clientPreferencesTags;
 
         // Check client preferences
-        int[] currentTypes = new int[currentSymbolNumber];
-        int[] currentTags = new int[currentSymbolNumber];
+        int[] currentTypes = new int[clientPreferencesTypes];
+        int[] currentTags = new int[clientPreferencesTags];
 
         // Check client prefered types
         for (int i = 0; i < _clientList[_clientId]._typesPreferences.Length; i++)
@@ -82,8 +82,8 @@ public class S_ClientManager : MonoBehaviour
             }
         }
 
-        // Check client prefered types
-        for (int i = 0; i < _clientList[_clientId]._typesPreferences.Length; i++)
+        // Check client prefered tags
+        for (int i = 0; i < _clientList[_clientId]._tagsPreferences.Length; i++)
         {
             for (int j = 0; j < currentSymbolNumber; j++)
             {
