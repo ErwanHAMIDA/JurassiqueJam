@@ -1108,6 +1108,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61a9f1fc7d8c14b4ea3105378be54acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_GameStateManager
+  _hubMenuUI: {fileID: 2047310169}
+  _craftMenuUI: {fileID: 1088515738}
+  _craftMenuBG: {fileID: 616406518}
+  _itemControlUI: {fileID: 1664747993}
+  _backButtonUI: {fileID: 1254781619}
+  _recipientUI: {fileID: 1227115563}
+  _panelDialogUI: {fileID: 648524978137998231}
+  Current: 1
   OnStateEnter:
     m_PersistentCalls:
       m_Calls:
@@ -1138,14 +1146,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _hubMenuUI: {fileID: 2047310169}
-  _craftMenuUI: {fileID: 1088515738}
-  _craftMenuBG: {fileID: 616406518}
-  _itemControlUI: {fileID: 1664747993}
-  _backButtonUI: {fileID: 1254781619}
-  _recipientUI: {fileID: 1227115563}
-  _panelDialogUI: {fileID: 648524978137998231}
-  Current: 1
 --- !u!1001 &512584289
 PrefabInstance:
   m_ObjectHideFlags: 0
