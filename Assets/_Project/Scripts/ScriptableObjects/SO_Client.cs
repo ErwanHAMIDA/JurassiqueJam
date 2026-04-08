@@ -15,6 +15,5 @@ public class SO_Client : ScriptableObject
     public SO_Symbols.SymbolTag[] _tagsPreferences;
     public int[] _numberNeededTag;
 
-    [NonSerialized]
     public S_ClientManager.ClientSatisfaction Satisfaction;
 }

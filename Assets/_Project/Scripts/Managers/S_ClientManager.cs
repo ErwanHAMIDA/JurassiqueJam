@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +23,7 @@ public class S_ClientManager : MonoBehaviour
     }
 
     private int _clientId;
-    public SO_Client CurrentClient => _clientList[_clientId];
+    [CanBeNull] public SO_Client CurrentClient => _clientId >= 0 && _clientId < _clientList.Count ? _clientList[_clientId] : null;
 
     public void SelectClient(int index)
     {
@@ -114,13 +115,25 @@ public class S_ClientManager : MonoBehaviour
         else
             return ClientSatisfaction.Sad;
     }
+
+    public bool AreAllClientsCompleted()
+    {
+        var completedClients = _clientList.Sum(client => client.Satisfaction == ClientSatisfaction.Joyful ? 1 : 0);
+        return completedClients >= _clientList.Count;
+    }
     
     public void HandleStateEnter(int state)
     {
         switch (state)
         {
             case (int)S_GameStateManager.GameState.ITEMDELIVERY:
-                CurrentClient.Satisfaction = CompareItem();
+                if (CurrentClient is not null) CurrentClient.Satisfaction = CompareItem();
+
+                _clientId = -1;
+                
+                if (AreAllClientsCompleted()) S_GameStateManager.Instance.ChangeState(S_GameStateManager.GameState.END);
+                else S_GameStateManager.Instance.ChangeState((int)S_GameStateManager.GameState.SELECTCLIENT);
+                
                 break;
         }
     }

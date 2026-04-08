@@ -14,6 +14,7 @@ public class S_GameStateManager : MonoBehaviour
     [SerializeField] private GameObject _backButtonUI;
     [SerializeField] private GameObject _recipientUI;
     [SerializeField] private GameObject _panelDialogUI;
+    [SerializeField] private GameObject _endGameDialogUI;
     
     public enum GameState
     {
@@ -23,7 +24,7 @@ public class S_GameStateManager : MonoBehaviour
         WORKSHOPOVERVIEW,
         ITEMCRAFTING,
         ITEMDELIVERY,
-        REWARD
+        END
     }
 
     private GameState _previousGameState;
@@ -61,6 +62,7 @@ public class S_GameStateManager : MonoBehaviour
                 _panelDialogUI.SetActive(true);
                 break;
             case (int)GameState.WORKSHOPOVERVIEW:
+                _endGameDialogUI.SetActive(false);
                 _hubMenuUI.SetActive(false);
                 _craftMenuUI.SetActive(true);
                 _craftMenuBG.GetComponent<Image>().color = new Vector4(1.0f, 1.0f, 1.0f, 1.0f);
@@ -77,14 +79,20 @@ public class S_GameStateManager : MonoBehaviour
             case (int)GameState.ITEMDELIVERY:
                 _craftMenuUI.SetActive(false);
                 _hubMenuUI.SetActive(true);
-                ChangeState((int)GameState.SELECTCLIENT);
                 break;
-            case (int)GameState.REWARD:
+            case (int)GameState.END:
+                _endGameDialogUI.SetActive(true);
+                
                 break;
         }
         
         Current = (GameState)state;
         
         OnStateEnter?.Invoke((int)Current);
+    }
+
+    public void ChangeState(GameState state)
+    {
+        ChangeState((int)state);
     }
 }
