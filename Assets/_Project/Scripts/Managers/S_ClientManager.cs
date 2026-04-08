@@ -80,7 +80,7 @@ public class S_ClientManager : MonoBehaviour
         for (int i = 0; i < currentTypes.Length; i++)
         {
             // FIXME: IndexOutOfRangeException: Index was outside the bounds of the array.
-            if (currentTypes[i] > client._numberNeededType[i])
+            if (currentTypes[i] >= client._numberNeededType[i])
                 score++;
             else if (currentTypes[i] < client._numberNeededType[i] / 3)
             {
@@ -103,7 +103,7 @@ public class S_ClientManager : MonoBehaviour
 
         for (int i = 0; i < currentTags.Length; i++)
         {
-            if (currentTags[i] > client._numberNeededTag[i])
+            if (currentTags[i] >= client._numberNeededTag[i])
                 score++;
             else if (currentTags[i] < client._numberNeededTag[i] / 3)
             {
