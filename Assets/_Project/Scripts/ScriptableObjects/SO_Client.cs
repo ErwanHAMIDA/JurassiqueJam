@@ -15,7 +15,6 @@ public class SO_Client : ScriptableObject
     public SO_Symbols.SymbolTag[] _tagsPreferences;
     public int[] _numberNeededTag;
 
-    [SerializeField]
     private S_ClientManager.ClientSatisfaction _satisfaction = S_ClientManager.ClientSatisfaction.Sad;
     public S_ClientManager.ClientSatisfaction Satisfaction
     {
