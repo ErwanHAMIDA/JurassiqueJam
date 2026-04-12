@@ -58,4 +58,9 @@ public class S_DialogSystem : MonoBehaviour
     {
         _dialogPanel.gameObject.SetActive(false);
     }
+
+    public string GetDialog()
+    {
+        return _allclientSentencesList[_clientManager.GetCurrentClientID()]._clientSentences[_currentIndex];
+    }
 }

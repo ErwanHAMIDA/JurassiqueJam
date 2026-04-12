@@ -1,5 +1,3 @@
-using System.Collections.Specialized;
-using System.Data.Common;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -32,7 +30,6 @@ public class CraftManager : MonoBehaviour
     [SerializeField] private Sprite[] _materialList;
     [SerializeField] private Texture2D[] _materialCursors;
 
-
     private List<PlacedSymbol> PlacedSymbols = new List<PlacedSymbol>();
 
     public static CraftManager Instance { get; private set; }
@@ -52,6 +49,16 @@ public class CraftManager : MonoBehaviour
     private void Start()
     {
         _firstSizeX = _baseTexture.GetComponent<RectTransform>().sizeDelta.x / 2;
+    }
+
+    public void ResetItem()
+    {
+        PlacedSymbols.Clear();
+        
+        for (int i = 0; i < _baseTexture.childCount; i++)
+        {
+            Destroy(_baseTexture.GetChild(i).gameObject);
+        }
     }
 
     public void NextTablet()
@@ -172,5 +179,19 @@ public class CraftManager : MonoBehaviour
     public List<PlacedSymbol> GetPlacedSymbols()
     {
         return PlacedSymbols;
+    }
+
+    public void HandleStateExit(int state)
+    {
+        switch (state)
+        {
+            case (int)S_GameStateManager.GameState.ITEMCRAFTING:
+                UnselectSymbol();
+                UnselectMaterial();
+                break;
+            case (int)S_GameStateManager.GameState.ITEMDELIVERY:
+                ResetItem();
+                break;
+        }
     }
 }

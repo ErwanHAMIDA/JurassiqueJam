@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +11,7 @@ public class S_ClientManager : MonoBehaviour
     [SerializeField] GameObject _clientDialogPanel;
     [SerializeField] Transform _spawnPoint;
     [SerializeField] GameObject _clientImage;
-
+    
     public static S_ClientManager Instance { get; private set; }
 
     public enum ClientSatisfaction
@@ -21,6 +23,7 @@ public class S_ClientManager : MonoBehaviour
     }
 
     private int _clientId;
+    [CanBeNull] public SO_Client CurrentClient => _clientId >= 0 && _clientId < _clientList.Count ? _clientList[_clientId] : null;
 
     public void SelectClient(int index)
     {
@@ -43,6 +46,7 @@ public class S_ClientManager : MonoBehaviour
     public ClientSatisfaction CompareItem()
     {
         List<PlacedSymbol> placedSymbols = CraftManager.Instance.GetPlacedSymbols();
+        
         int currentSymbolNumber = placedSymbols.Count;
         int clientPreferencesTypes = _clientList[_clientId]._typesPreferences.Length;
         int clientPreferencesTags = _clientList[_clientId]._tagsPreferences.Length;
@@ -52,8 +56,8 @@ public class S_ClientManager : MonoBehaviour
         int maxScore = clientPreferencesTypes + clientPreferencesTags;
 
         // Check client preferences
-        int[] currentTypes = new int[currentSymbolNumber];
-        int[] currentTags = new int[currentSymbolNumber];
+        int[] currentTypes = new int[clientPreferencesTypes];
+        int[] currentTags = new int[clientPreferencesTags];
 
         // Check client prefered types
         for (int i = 0; i < _clientList[_clientId]._typesPreferences.Length; i++)
@@ -70,6 +74,7 @@ public class S_ClientManager : MonoBehaviour
 
         for (int i = 0; i < currentTypes.Length; i++)
         {
+            // FIXME: IndexOutOfRangeException: Index was outside the bounds of the array.
             if (currentTypes[i] > _clientList[_clientId]._numberNeededType[i])
                 score++;
             else if (currentTypes[i] < _clientList[_clientId]._numberNeededType[i] / 3)
@@ -78,8 +83,8 @@ public class S_ClientManager : MonoBehaviour
             }
         }
 
-        // Check client prefered types
-        for (int i = 0; i < _clientList[_clientId]._typesPreferences.Length; i++)
+        // Check client prefered tags
+        for (int i = 0; i < _clientList[_clientId]._tagsPreferences.Length; i++)
         {
             for (int j = 0; j < currentSymbolNumber; j++)
             {
@@ -109,5 +114,27 @@ public class S_ClientManager : MonoBehaviour
             return ClientSatisfaction.Unhappy;
         else
             return ClientSatisfaction.Sad;
+    }
+
+    public bool AreAllClientsCompleted()
+    {
+        var completedClients = _clientList.Sum(client => client.Satisfaction == ClientSatisfaction.Joyful ? 1 : 0);
+        return completedClients >= _clientList.Count;
+    }
+    
+    public void HandleStateEnter(int state)
+    {
+        switch (state)
+        {
+            case (int)S_GameStateManager.GameState.ITEMDELIVERY:
+                if (CurrentClient is not null) CurrentClient.Satisfaction = CompareItem();
+
+                _clientId = -1;
+                
+                if (AreAllClientsCompleted()) S_GameStateManager.Instance.ChangeState(S_GameStateManager.GameState.END);
+                else S_GameStateManager.Instance.ChangeState((int)S_GameStateManager.GameState.SELECTCLIENT);
+                
+                break;
+        }
     }
 }
