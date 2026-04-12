@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7437601607714891521}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.4000003, y: 2.4000003, z: 2.4000003}
   m_ConstrainProportionsScale: 0
@@ -90,4 +90,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShaderBasedRaycast
   image: {fileID: 39295007402845705}
   isInverted: 1
-  alphaThreshold: 0.1
+  alphaThreshold: 0.7
