@@ -180,4 +180,18 @@ public class CraftManager : MonoBehaviour
     {
         return PlacedSymbols;
     }
+
+    public void HandleStateExit(int state)
+    {
+        switch (state)
+        {
+            case (int)S_GameStateManager.GameState.ITEMCRAFTING:
+                UnselectSymbol();
+                UnselectMaterial();
+                break;
+            case (int)S_GameStateManager.GameState.ITEMDELIVERY:
+                ResetItem();
+                break;
+        }
+    }
 }
