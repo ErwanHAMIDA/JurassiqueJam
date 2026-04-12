@@ -69,7 +69,7 @@ public class S_ClientManager : MonoBehaviour
         {
             for (int j = 0; j < currentSymbolNumber; j++)
             {
-                SO_Symbols currentSymbol = placedSymbols[i];
+                SO_Symbols currentSymbol = placedSymbols[j];
                 if (currentSymbol._symbolType == client._typesPreferences[i] && currentSymbol._symbolOrigin.Contains(client._clientOrigin))
                 {
                     currentTypes[i]++;
@@ -79,7 +79,6 @@ public class S_ClientManager : MonoBehaviour
 
         for (int i = 0; i < currentTypes.Length; i++)
         {
-            // FIXME: IndexOutOfRangeException: Index was outside the bounds of the array.
             if (currentTypes[i] >= client._numberNeededType[i])
                 score++;
             else if (currentTypes[i] < client._numberNeededType[i] / 3)
@@ -93,7 +92,7 @@ public class S_ClientManager : MonoBehaviour
         {
             for (int j = 0; j < currentSymbolNumber; j++)
             {
-                SO_Symbols currentSymbol = placedSymbols[i];
+                SO_Symbols currentSymbol = placedSymbols[j];
                 if (currentSymbol._symbolTags.Contains(client._tagsPreferences[i]) && currentSymbol._symbolOrigin.Contains(client._clientOrigin))
                 {
                     currentTags[i]++;
