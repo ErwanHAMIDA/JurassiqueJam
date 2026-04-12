@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
-        m_Texture: {fileID: 2800000, guid: ccd6f08c2d3aff14b87cc5c529f8d096, type: 3}
+        m_Texture: {fileID: 2800000, guid: 498d4ebf82a9c90489d646f2ab657065, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -46,7 +46,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _ColorMask: 15
-    - _IsInverted: 1
+    - _IsInverted: 0
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
