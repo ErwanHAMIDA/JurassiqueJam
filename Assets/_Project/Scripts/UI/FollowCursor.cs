@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,8 @@ public class FollowCursor : MonoBehaviour
     private bool _isMoving = false;
     private Vector2 _startPosition;
     private Vector2 _lastPosition;
+
+    [SerializeField] private AudioClip _movingSound;
 
     void Update()
     {
@@ -46,6 +49,7 @@ public class FollowCursor : MonoBehaviour
             {
                 Debug.Log("Move");
                 CraftManager.Instance.MoveBaseTexture(Input.mousePosition.x - _lastPosition.x);
+                S_SFXManager.Instance.PlayOneAtATimeSFXClip(_movingSound);
                 _lastPosition = Input.mousePosition;
             }
         }
