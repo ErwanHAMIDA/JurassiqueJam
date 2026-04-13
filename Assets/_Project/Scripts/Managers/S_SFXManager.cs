@@ -6,10 +6,14 @@ public class S_SFXManager : MonoBehaviour
     public static S_SFXManager Instance { get; private set; }
     [SerializeField] private AudioSource _SFXObject;
 
+    private AudioSource _oneShotAudioSource;
+
     private void Awake()
     {
         if (Instance == null)
             Instance = this;
+        
+        _oneShotAudioSource = Instantiate(_SFXObject);
     }
 
     public void PlaySFXClipAtPoint(AudioClip audioClip, Transform transform, float volume)
@@ -58,5 +62,12 @@ public class S_SFXManager : MonoBehaviour
 
         Destroy(audioSource.gameObject, clipLength);
 
+    }
+
+    public void PlayOneAtATimeSFXClip(AudioClip audioClip)
+    {
+        if (_oneShotAudioSource.isPlaying) return;
+        
+        _oneShotAudioSource.PlayOneShot(audioClip);
     }
 }
