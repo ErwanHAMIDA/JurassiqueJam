@@ -2651,7 +2651,7 @@ MonoBehaviour:
         m_MethodName: PlaySFXClip
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 09965aec24b5ba541a978c29083f4f8a, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: b3bbaac5b5b424dd4a0c511aaf3e5ca0, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -4740,8 +4740,6 @@ MonoBehaviour:
   _rotateSlider: {fileID: 420193037}
   _baseTexture: {fileID: 581506574}
   _audioClipList:
-  - {fileID: 8300000, guid: 9d4ca2517d004724eba20678fb71043d, type: 3}
-  - {fileID: 8300000, guid: b582b11a280bab6488458730f67c6df1, type: 3}
   - {fileID: 8300000, guid: 56630300bda25ad40bb44fbd3f59c775, type: 3}
   - {fileID: 8300000, guid: be6516bba8567f44c87e9f4189ee9711, type: 3}
   _tabletList:
@@ -6779,7 +6777,7 @@ MonoBehaviour:
         m_MethodName: PlaySFXClip
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 09965aec24b5ba541a978c29083f4f8a, type: 3}
+          m_ObjectArgument: {fileID: 8300000, guid: b3bbaac5b5b424dd4a0c511aaf3e5ca0, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0

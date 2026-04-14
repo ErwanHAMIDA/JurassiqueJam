@@ -34,7 +34,7 @@ public class S_SFXManager : MonoBehaviour
 
     public void PlayRandomClip(List<AudioClip> audioClipList, Transform transform, float volume)
     {
-        int random = UnityEngine.Random.Range(0, audioClipList.Count - 1);
+        int random = UnityEngine.Random.Range(0, audioClipList.Count);
 
         AudioSource audioSource = Instantiate(_SFXObject, transform.position, Quaternion.identity);
 
@@ -66,8 +66,13 @@ public class S_SFXManager : MonoBehaviour
 
     public void PlayOneAtATimeSFXClip(AudioClip audioClip)
     {
+        PlayOneAtATimeSFXClip(audioClip, 1.0f);
+    }
+    
+    public void PlayOneAtATimeSFXClip(AudioClip audioClip, float volume)
+    {
         if (_oneShotAudioSource.isPlaying) return;
         
-        _oneShotAudioSource.PlayOneShot(audioClip);
+        _oneShotAudioSource.PlayOneShot(audioClip, volume);
     }
 }

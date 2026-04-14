@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class S_CarvedSymbol : MonoBehaviour
 {
     [SerializeField] private Image _texture;
+    [SerializeField] private List<AudioClip> _audioClipList;
 
     void Start () 
 	{
@@ -18,5 +20,6 @@ public class S_CarvedSymbol : MonoBehaviour
         _texture.sprite = CraftManager.Instance._selectedMaterial;
 
         CraftManager.Instance.CheckOnboarding(11);
+        S_SFXManager.Instance.PlayRandomClip(_audioClipList, transform, 1.0f);
     }
 }
