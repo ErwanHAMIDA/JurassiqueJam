@@ -16,6 +16,9 @@ public class CraftManager : MonoBehaviour
     public float _minimumRotation;
     public float _maximumRotation;
 
+    [Header("Onboarding")]
+    [SerializeField] private List<GameObject> _onboardingPanelList;
+
     private float _firstSizeX;
 
     private int _currentTabletIndex = 0;
@@ -25,12 +28,16 @@ public class CraftManager : MonoBehaviour
     private int _selectedSymbolId = -1;
     private int _selectedMaterialId = -1;
 
+    const int NUM_ONBOARDING = 4;
+    int _onboardingCurrentIndex = 0;
+
     [Header("Materials")]
     [NonSerialized] public Sprite _selectedMaterial;
     [SerializeField] private Sprite[] _materialList;
     [SerializeField] private Texture2D[] _materialCursors;
 
     private List<PlacedSymbol> PlacedSymbols = new List<PlacedSymbol>();
+    private bool _waitedOnceAt12;
 
     public static CraftManager Instance { get; private set; }
 
@@ -67,6 +74,8 @@ public class CraftManager : MonoBehaviour
         _currentTabletIndex++;
         if (_currentTabletIndex > NUM_TABLETS - 1) _currentTabletIndex = 0;
         UpdateTablet();
+
+        CheckOnboarding(6);
     }
 
     public void PreviousTablet()
@@ -82,6 +91,7 @@ public class CraftManager : MonoBehaviour
     {
         _tabletList[_previousTabletIndex].gameObject.SetActive(false);
         _tabletList[_currentTabletIndex].gameObject.SetActive(true);
+
     }
 
     public void SelectSymbol(int id)
@@ -95,6 +105,48 @@ public class CraftManager : MonoBehaviour
         UnselectSymbol();
         _selectedSymbolId = id;
         _symbolPrevisu.ChangeSymbol(SymbolManager.Instance.GetSymbolById(id)._symbolPrefab);
+
+        CheckOnboarding(3);
+        CheckOnboarding(7);
+    }
+
+    public void CheckOnboarding(int index)
+    {
+        Debug.Log("Onboarding : " + _onboardingCurrentIndex);
+        Debug.Log("Index send : " + index);
+
+        if (_onboardingCurrentIndex >= _onboardingPanelList.Count)
+        {
+            _onboardingPanelList[_onboardingCurrentIndex - 1].SetActive(false);
+            return;
+        }
+
+        if (_onboardingCurrentIndex == 12)
+        {
+            if (_waitedOnceAt12 == false)
+            {
+                _waitedOnceAt12 = true;
+                return;
+            }
+
+            _waitedOnceAt12 = false;
+        }
+
+        if (index != _onboardingCurrentIndex) return;
+
+        if (index > 0 && index < _onboardingPanelList.Count)
+        {
+            if (_onboardingPanelList[index - 1] != null)
+                _onboardingPanelList[index - 1].SetActive(false);
+        }
+
+        if (_onboardingPanelList[index] != null)
+            _onboardingPanelList[index].SetActive(true);
+
+        
+
+        _onboardingCurrentIndex++;
+
     }
 
     public void SelectMaterial(int id)
@@ -107,11 +159,14 @@ public class CraftManager : MonoBehaviour
         UnselectSymbol();
         ChangeCursor(_materialCursors[id]);
         _selectedMaterial = _materialList[id];
+
+        CheckOnboarding(10);
     }
 
     public void ResizeSymbol()
     {
         _symbolPrevisu.ChangeScale(_scaleSlider.value * 10);
+        CheckOnboarding(8);
     }
 
     public void RotateSymbol()
@@ -152,6 +207,9 @@ public class CraftManager : MonoBehaviour
             go_symbol.transform.localScale = scale;
             PlacedSymbols.Add(new PlacedSymbol { Id = _selectedSymbolId, Position = position, Scale = _scaleSlider.value });
             S_SFXManager.Instance.PlayRandomClip(_audioClipList, transform, 1.0f);
+
+            CheckOnboarding(5);
+            CheckOnboarding(9);
         }
     }
 

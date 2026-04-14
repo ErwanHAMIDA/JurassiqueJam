@@ -16,5 +16,7 @@ public class S_CarvedSymbol : MonoBehaviour
 
         _texture.enabled = true;
         _texture.sprite = CraftManager.Instance._selectedMaterial;
+
+        CraftManager.Instance.CheckOnboarding(11);
     }
 }
