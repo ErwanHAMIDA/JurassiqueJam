@@ -49,7 +49,7 @@ public class FollowCursor : MonoBehaviour
             {
                 Debug.Log("Move");
                 CraftManager.Instance.MoveBaseTexture(Input.mousePosition.x - _lastPosition.x);
-                S_SFXManager.Instance.PlayOneAtATimeSFXClip(_movingSound);
+                S_SFXManager.Instance.PlayOneAtATimeSFXClip(_movingSound, 1.5f);
                 _lastPosition = Input.mousePosition;
             }
         }

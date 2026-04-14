@@ -88,6 +88,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4358020227263001636, guid: 326382f0bd187bc40a273784236f397c, type: 3}
+      propertyPath: _audioClipList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4358020227263001636, guid: 326382f0bd187bc40a273784236f397c, type: 3}
+      propertyPath: '_audioClipList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d4ca2517d004724eba20678fb71043d, type: 3}
+    - target: {fileID: 4358020227263001636, guid: 326382f0bd187bc40a273784236f397c, type: 3}
+      propertyPath: '_audioClipList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b582b11a280bab6488458730f67c6df1, type: 3}
     - target: {fileID: 8806598865234805768, guid: 326382f0bd187bc40a273784236f397c, type: 3}
       propertyPath: m_Name
       value: PS17_Losange
