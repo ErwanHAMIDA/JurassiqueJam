@@ -103,6 +103,24 @@ public class FollowCursor : MonoBehaviour
             Destroy(_previsuZone.GetChild(0).gameObject);
         }
     }
+    
+    public void ChangeMaterial(GameObject material)
+    {
+        if (transform.childCount > 0)
+        {
+            Destroy(_previsuZone.GetChild(0).gameObject);
+        }
+
+        Instantiate(material, _previsuZone.position, Quaternion.identity, _previsuZone);
+    }
+
+    public void ResetMaterial()
+    {
+        if (_previsuZone.childCount > 0)
+        {
+            Destroy(_previsuZone.GetChild(0).gameObject);
+        }
+    }
 
     public void ChangeScale(float scale)
     {

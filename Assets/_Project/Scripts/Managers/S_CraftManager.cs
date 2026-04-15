@@ -157,7 +157,7 @@ public class CraftManager : MonoBehaviour
             return;
         }
         UnselectSymbol();
-        ChangeCursor(_materialCursors[id]);
+        UnselectMaterial();
         _selectedMaterial = _materialList[id];
 
         CheckOnboarding(10);
@@ -177,7 +177,7 @@ public class CraftManager : MonoBehaviour
     private void UnselectMaterial()
     {
         _selectedMaterial = null;
-        ResetCursor();
+        _symbolPrevisu.ResetMaterial();
     }
 
     public void UnselectSymbol()
