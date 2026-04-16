@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
@@ -29,3 +30,4 @@ public class E_Client : Editor
         _client.Satisfaction = (S_ClientManager.ClientSatisfaction)args;
     }
 }
+#endif
