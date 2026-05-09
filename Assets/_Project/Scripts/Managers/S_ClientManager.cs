@@ -52,74 +52,63 @@ public class S_ClientManager : MonoBehaviour
 
     public static ClientSatisfaction CalculateClientSatisfaction(List<SO_Symbols> placedSymbols, SO_Client client)
     {
-        int currentSymbolNumber = placedSymbols.Count;
+        if (placedSymbols.Count == 0) return ClientSatisfaction.Sad;
+
+        float totalPreferredSymbols = 0.0f;
+
+        foreach (var symbol in placedSymbols)
+        {
+            if (symbol._symbolOrigin.Contains(client._clientOrigin) &&
+                (client._typesPreferences.Contains(symbol._symbolType) ||
+                 symbol._symbolTags.Any(tag => client._tagsPreferences.Contains(tag))))
+            {
+                totalPreferredSymbols++;
+            }
+        }
+
+        float satisfactionRatio = totalPreferredSymbols / placedSymbols.Count;
+
+        if (satisfactionRatio <= client._permissiveRatio) return ClientSatisfaction.Sad;
+
+        int score = 0;
         int clientPreferencesTypes = client._typesPreferences.Length;
         int clientPreferencesTags = client._tagsPreferences.Length;
 
-        int score = 0;
-
-        int maxScore = clientPreferencesTypes + clientPreferencesTags - client._permissiveRatio;
-
-        // Check client preferences
-        int[] currentTypes = new int[clientPreferencesTypes];
-        int[] currentTags = new int[clientPreferencesTags];
+        int maxScore = clientPreferencesTypes + clientPreferencesTags;
 
         // Check client prefered types
-        for (int i = 0; i < client._typesPreferences.Length; i++)
+        for (int i = 0; i < clientPreferencesTypes; i++)
         {
-            for (int j = 0; j < currentSymbolNumber; j++)
-            {
-                SO_Symbols currentSymbol = placedSymbols[j];
-                if (currentSymbol._symbolType == client._typesPreferences[i] && currentSymbol._symbolOrigin.Contains(client._clientOrigin))
-                {
-                    currentTypes[i]++;
-                }
-            }
-        }
+            int count = placedSymbols.Count(s =>
+                s._symbolType == client._typesPreferences[i] &&
+                s._symbolOrigin.Contains(client._clientOrigin));
 
-        //check if the right number of placed symbols
-        for (int i = 0; i < currentTypes.Length; i++)
-        {
-            if (currentTypes[i] >= client._numberNeededType[i])
+            if (count >= client._numberNeededType[i])
                 score++;
-            else if (currentTypes[i] < client._numberNeededType[i] / 3)
-            {
+            else if (count < client._numberNeededType[i] / 3f)
                 score--;
-            }
         }
-
+        
         // Check client prefered tags
-        for (int i = 0; i < client._tagsPreferences.Length; i++)
+        for (int i = 0; i < clientPreferencesTags; i++)
         {
-            for (int j = 0; j < currentSymbolNumber; j++)
-            {
-                SO_Symbols currentSymbol = placedSymbols[j];
-                if (currentSymbol._symbolTags.Contains(client._tagsPreferences[i]) && currentSymbol._symbolOrigin.Contains(client._clientOrigin))
-                {
-                    currentTags[i]++;
-                }
-                else
-                {
-                    currentTags[i]--;
-                }
-            }
-        }
+            int count = placedSymbols.Count(s =>
+                s._symbolTags.Contains(client._tagsPreferences[i]) &&
+                s._symbolOrigin.Contains(client._clientOrigin));
 
-        for (int i = 0; i < currentTags.Length; i++)
-        {
-            if (currentTags[i] >= client._numberNeededTag[i])
+            if (count >= client._numberNeededTag[i])
                 score++;
-            else if (currentTags[i] < client._numberNeededTag[i] / 3)
-            {
+            else if (count < client._numberNeededTag[i] / 3f)
                 score--;
-            }            
         }
 
-        if (score >= maxScore)
+        float finalScore = score * satisfactionRatio;
+
+        if (finalScore >= maxScore)
             return ClientSatisfaction.Joyful;
-        else if (score >= maxScore * 0.5f)
+        else if (finalScore >= maxScore * 0.5f)
             return ClientSatisfaction.Happy;
-        else if (score >= 0)
+        else if (finalScore >= 0)
             return ClientSatisfaction.Unhappy;
         else
             return ClientSatisfaction.Sad;

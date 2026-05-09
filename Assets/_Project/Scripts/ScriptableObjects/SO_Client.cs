@@ -28,9 +28,9 @@ public class SO_Client : ScriptableObject
         }
     }
 
-    [Tooltip("Substract the matching tag number required by this amount")]
-    [Range(0, 3)]
-    public int _permissiveRatio = 1;
+    [Tooltip("The ratio of unexpected symbols that allowed")]
+    [Range(0.0f, 0.99f)]
+    public float _permissiveRatio = 0.2f;
 
     public event Action<S_ClientManager.ClientSatisfaction> OnSatisfactionChanged;
 
