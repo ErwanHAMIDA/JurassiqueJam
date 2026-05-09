@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class S_ClientManager : MonoBehaviour
     [SerializeField] GameObject _clientDialogPanel;
     [SerializeField] Transform _spawnPoint;
     [SerializeField] GameObject _clientImage;
+    [SerializeField] GameObject _informationPanel;
+    [SerializeField] TextMeshProUGUI _informationTextMesh;
     
     public static S_ClientManager Instance { get; private set; }
 
@@ -47,7 +50,9 @@ public class S_ClientManager : MonoBehaviour
     {
         List<SO_Symbols> placedSymbols = CraftManager.Instance.GetPlacedSymbols().Select(symbol => SymbolManager.Instance.GetSymbolById(symbol.Id)).ToList();
 
-        return CalculateClientSatisfaction(placedSymbols, _clientList[_clientId]);
+        ClientSatisfaction satisfaction = CalculateClientSatisfaction(placedSymbols, CurrentClient);
+
+        return satisfaction;
     }
 
     public static ClientSatisfaction CalculateClientSatisfaction(List<SO_Symbols> placedSymbols, SO_Client client)
@@ -125,7 +130,11 @@ public class S_ClientManager : MonoBehaviour
         switch (state)
         {
             case (int)S_GameStateManager.GameState.ITEMDELIVERY:
-                if (CurrentClient is not null) CurrentClient.Satisfaction = CompareItem();
+                if (CurrentClient is not null)
+                {
+                    CurrentClient.Satisfaction = CompareItem();
+                    FinishWithClient();
+                }
 
                 _clientId = -1;
                 
@@ -133,6 +142,30 @@ public class S_ClientManager : MonoBehaviour
                 else S_GameStateManager.Instance.ChangeState((int)S_GameStateManager.GameState.SELECTCLIENT);
                 
                 break;
+        }
+    }
+
+    public void FinishWithClient()
+    {
+        ClientSatisfaction satisfaction = CurrentClient.Satisfaction;
+
+        _informationPanel.SetActive(true);
+
+        switch (satisfaction)
+        {
+            case (ClientSatisfaction.Joyful):
+                _informationTextMesh.text = CurrentClient._joyfulText;
+                break;
+            case (ClientSatisfaction.Happy):
+                _informationTextMesh.text = CurrentClient._happyText;
+                break;
+            case (ClientSatisfaction.Unhappy):
+                _informationTextMesh.text = CurrentClient._unhappyText;
+                break;
+            case (ClientSatisfaction.Sad):
+                _informationTextMesh.text = CurrentClient._sadText;
+                break;
+
         }
     }
 }

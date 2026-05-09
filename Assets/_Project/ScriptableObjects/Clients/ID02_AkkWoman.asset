@@ -20,3 +20,7 @@ MonoBehaviour:
   _tagsPreferences: 0000000003000000
   _numberNeededTag: 0200000002000000
   _permissiveRatio: 0.1
+  _joyfulText: TROP CONTENT
+  _happyText: JUSTE CONTENT
+  _unhappyText: PAS CONTENT
+  _sadText: TROP LE SEUM
