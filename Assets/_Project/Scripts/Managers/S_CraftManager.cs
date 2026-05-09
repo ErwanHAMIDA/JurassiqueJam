@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
+using System.Collections;
 
 public class CraftManager : MonoBehaviour
 {
@@ -121,6 +122,8 @@ public class CraftManager : MonoBehaviour
             return;
         }
 
+        if (index != _onboardingCurrentIndex) return;
+
         if (_onboardingCurrentIndex == 12)
         {
             if (_waitedOnceAt12 == false)
@@ -132,7 +135,12 @@ public class CraftManager : MonoBehaviour
             _waitedOnceAt12 = false;
         }
 
-        if (index != _onboardingCurrentIndex) return;
+        if (_onboardingCurrentIndex == 3)
+        {
+            StartCoroutine(AutoDisabledPanel(4.0f, index));
+            return;
+        }
+
 
         if (index > 0 && index < _onboardingPanelList.Count)
         {
@@ -147,6 +155,17 @@ public class CraftManager : MonoBehaviour
 
         _onboardingCurrentIndex++;
 
+    }
+
+    IEnumerator AutoDisabledPanel(float delay, int index)
+    {
+        _onboardingPanelList[index - 1].SetActive(false);
+        _onboardingPanelList[index].SetActive(true);
+        yield return new WaitForSeconds(delay);
+        _onboardingCurrentIndex++;
+        _onboardingPanelList[index].SetActive(false);
+        //_onboardingPanelList[index].SetActive(false);
+        CheckOnboarding(4);
     }
 
     public void SelectMaterial(int id)
