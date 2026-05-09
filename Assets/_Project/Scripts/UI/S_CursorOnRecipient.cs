@@ -17,7 +17,6 @@ public class S_CursorOnRecipient : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        //Debug.Log(S_GameStateManager.Instance.Current);
         if (S_GameStateManager.Instance.Current != S_GameStateManager.GameState.ITEMCRAFTING)
         {
             S_GameStateManager.Instance.ChangeState((int)S_GameStateManager.GameState.ITEMCRAFTING);

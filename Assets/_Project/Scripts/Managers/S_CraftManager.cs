@@ -113,9 +113,6 @@ public class CraftManager : MonoBehaviour
 
     public void CheckOnboarding(int index)
     {
-        Debug.Log("Onboarding : " + _onboardingCurrentIndex);
-        Debug.Log("Index send : " + index);
-
         if (_onboardingCurrentIndex >= _onboardingPanelList.Count)
         {
             _onboardingPanelList[_onboardingCurrentIndex - 1].SetActive(false);
@@ -141,6 +138,7 @@ public class CraftManager : MonoBehaviour
             return;
         }
 
+        
 
         if (index > 0 && index < _onboardingPanelList.Count)
         {
@@ -148,7 +146,11 @@ public class CraftManager : MonoBehaviour
                 _onboardingPanelList[index - 1].SetActive(false);
         }
 
-        if (_onboardingPanelList[index] != null)
+        if (index == 0)
+        {
+            _onboardingPanelList[index].SetActive(false);
+        }
+        else if (_onboardingPanelList[index] != null)
             _onboardingPanelList[index].SetActive(true);
 
         

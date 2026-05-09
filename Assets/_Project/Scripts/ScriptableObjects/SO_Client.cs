@@ -21,7 +21,6 @@ public class SO_Client : ScriptableObject
         get => _satisfaction;
         set
         {
-            Debug.Log(value);
             _satisfaction = value;
 
             OnSatisfactionChanged?.Invoke(_satisfaction);
