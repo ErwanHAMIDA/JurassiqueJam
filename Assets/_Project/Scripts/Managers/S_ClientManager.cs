@@ -58,7 +58,7 @@ public class S_ClientManager : MonoBehaviour
 
         int score = 0;
 
-        int maxScore = clientPreferencesTypes + clientPreferencesTags;
+        int maxScore = clientPreferencesTypes + clientPreferencesTags - client._permissiveRatio;
 
         // Check client preferences
         int[] currentTypes = new int[clientPreferencesTypes];
@@ -77,6 +77,7 @@ public class S_ClientManager : MonoBehaviour
             }
         }
 
+        //check if the right number of placed symbols
         for (int i = 0; i < currentTypes.Length; i++)
         {
             if (currentTypes[i] >= client._numberNeededType[i])
@@ -97,6 +98,10 @@ public class S_ClientManager : MonoBehaviour
                 {
                     currentTags[i]++;
                 }
+                else
+                {
+                    currentTags[i]--;
+                }
             }
         }
 
@@ -112,7 +117,7 @@ public class S_ClientManager : MonoBehaviour
 
         if (score >= maxScore)
             return ClientSatisfaction.Joyful;
-        else if (score >= maxScore * 0.75f)
+        else if (score >= maxScore * 0.5f)
             return ClientSatisfaction.Happy;
         else if (score >= 0)
             return ClientSatisfaction.Unhappy;

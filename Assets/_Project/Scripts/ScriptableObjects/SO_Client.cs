@@ -28,6 +28,10 @@ public class SO_Client : ScriptableObject
         }
     }
 
+    [Tooltip("Substract the matching tag number required by this amount")]
+    [Range(0, 3)]
+    public int _permissiveRatio = 1;
+
     public event Action<S_ClientManager.ClientSatisfaction> OnSatisfactionChanged;
 
     public void OnValidate()
