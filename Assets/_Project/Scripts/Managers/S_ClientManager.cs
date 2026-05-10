@@ -121,7 +121,8 @@ public class S_ClientManager : MonoBehaviour
 
     public bool AreAllClientsCompleted()
     {
-        var completedClients = _clientList.Sum(client => client.Satisfaction == ClientSatisfaction.Joyful ? 1 : 0);
+        var completedClients = _clientList.Sum(client => client.Satisfaction == ClientSatisfaction.Joyful 
+        || client.Satisfaction == ClientSatisfaction.Happy ? 1 : 0);
         return completedClients >= _clientList.Count;
     }
     
