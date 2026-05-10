@@ -186,7 +186,7 @@ public class CraftManager : MonoBehaviour
 
     public void ResizeSymbol()
     {
-        _symbolPrevisu.ChangeScale(_scaleSlider.value * 10);
+        _symbolPrevisu.ChangeScale(_scaleSlider.value);
         CheckOnboarding(8);
     }
 
@@ -205,7 +205,7 @@ public class CraftManager : MonoBehaviour
     {
         ResetCursor();
         _selectedSymbolId = -1;
-        _scaleSlider.value = 0.1f;
+        _scaleSlider.value = 1f;
         _rotateSlider.value = 0f;
         _symbolPrevisu.ResetSymbol();
     }
