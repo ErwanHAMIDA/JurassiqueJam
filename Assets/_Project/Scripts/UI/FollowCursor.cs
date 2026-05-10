@@ -11,6 +11,7 @@ public class FollowCursor : MonoBehaviour
 
     [SerializeField] private float movingThreshold = 5.0f;
     [SerializeField] private Transform _previsuZone;
+    [SerializeField] private Transform _imagePrevisu;
     private bool _isOnRecipient = false;
     private bool _isClicking = false;
     private bool _isMoving = false;
@@ -70,18 +71,19 @@ public class FollowCursor : MonoBehaviour
 
     public void ChangeSymbol(GameObject symbol)
     {
-        if (transform.childCount > 0)
-        {
-            Destroy(transform.GetChild(0).gameObject);
-            Destroy(_previsuZone.GetChild(0).gameObject);
-        }
+        ResetSymbol();
 
         GameObject newSymbol = Instantiate(symbol, transform.position, Quaternion.identity, transform);
-        Instantiate(symbol, _previsuZone.position, Quaternion.identity, _previsuZone);
+        //Instantiate(symbol, _imagePrevisu.position, Quaternion.identity, _imagePrevisu);
 
         if (newSymbol.TryGetComponent<Image>(out Image image))
         {
             image.color = new Color (image.color.r, image.color.g, image.color.b, 0.5f);
+            if (_imagePrevisu.TryGetComponent<Image>(out Image symbolImage))
+            {
+                symbolImage.sprite = image.sprite;
+                symbolImage.color = new Color(1f, 1f, 1f, 1f);
+            }
         }
 
         for (int i = 0; i < newSymbol.transform.childCount; i++)
@@ -96,9 +98,16 @@ public class FollowCursor : MonoBehaviour
     public void ResetSymbol()
     {
         if (transform.childCount > 0)
-        {
             Destroy(transform.GetChild(0).gameObject);
-            Destroy(_previsuZone.GetChild(0).gameObject);
+
+        if (_previsuZone.childCount > 0)
+        {
+            var zoneChild = _previsuZone.GetChild(0);
+
+            if (zoneChild.childCount > 0)
+                Destroy(zoneChild.GetChild(0).gameObject);
+
+            Destroy(zoneChild.gameObject);
         }
     }
 
