@@ -402,7 +402,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: -60.000008}
+  m_AnchoredPosition: {x: 0.000030517578, y: -83}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &213689799
@@ -896,7 +896,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00006866455, y: -58.999985}
+  m_AnchoredPosition: {x: -0.00006866455, y: -94}
   m_SizeDelta: {x: 1080, y: 280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &409631381
@@ -920,7 +920,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\xC9volution de l\u2019art de l\u2019incrustation en M\xE9sopotamie au
-    IIIe\nmill\xE9naire av. J.C. : \xC9tudes typologique, technologique et\ndiachroniquee\n\n\nHala
+    IIIe\nmill\xE9naire av. J.C. : \xC9tudes typologique, technologique et\ndiachronique\n\n\nHala
     Maroke-Barbar\n\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8db615829d6d6848dbfc56ded5bda4fe, type: 2}
@@ -1351,7 +1351,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 344, y: -201}
+  m_AnchoredPosition: {x: 344, y: -277}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &717900447
@@ -1627,7 +1627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 91}
+  m_AnchoredPosition: {x: 0, y: 72}
   m_SizeDelta: {x: 200, y: 60}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &758422467
@@ -1847,7 +1847,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00006866455, y: 0}
+  m_AnchoredPosition: {x: 0.00006866455, y: -10}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &848458159
@@ -2446,7 +2446,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -61.00003}
+  m_AnchoredPosition: {x: 0, y: -116}
   m_SizeDelta: {x: 240, y: 50}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &976935185
@@ -2871,7 +2871,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: -60.000008}
+  m_AnchoredPosition: {x: 0.000030517578, y: -86}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1226628941
@@ -3227,7 +3227,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 92, y: 240}
+  m_AnchoredPosition: {x: 92, y: 278}
   m_SizeDelta: {x: 1080, y: 280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1729325028
@@ -3564,7 +3564,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -124, y: 25}
+  m_AnchoredPosition: {x: -160, y: 25}
   m_SizeDelta: {x: 240, y: 50}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &2015428455

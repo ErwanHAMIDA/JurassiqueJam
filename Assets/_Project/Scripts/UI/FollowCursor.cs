@@ -1,129 +1,201 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FollowCursor : MonoBehaviour
 {
-    //[SerializeField] private GameObject _firstView;
-    //[SerializeField] private GameObject _secondView;
-    //[SerializeField] private GameObject _swapLimitPoint;
-    //[SerializeField] private GameObject _swapSpawnPoint;
-
+    [Header("Movement")]
     [SerializeField] private float movingThreshold = 5.0f;
+
+    [Header("Preview")]
     [SerializeField] private Transform _previsuZone;
+    [SerializeField] private Transform _imagePrevisu;
+    [SerializeField] private Vector3 _minScale = new(0.5f, 0.5f, 0.5f);
+    [SerializeField] private Vector3 _maxScale = new(2.0f, 2.0f, 2.0f);
+    [SerializeField] private float _slowSizeRatio = 0.33f;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip _movingSound;
+
     private bool _isOnRecipient = false;
     private bool _isClicking = false;
     private bool _isMoving = false;
+
     private Vector2 _startPosition;
     private Vector2 _lastPosition;
 
-    [SerializeField] private AudioClip _movingSound;
+    private GameObject _currentSymbol;
+    private GameObject _currentPreview;
 
-    void Update()
+    private void Update()
+    {
+        HandleCursorFollow();
+        HandleInput();
+    }
+
+    private void HandleCursorFollow()
     {
         if (!_isOnRecipient)
         {
-            transform.position = Vector2.one * 1000.0f;   
+            transform.position = Vector2.one * 1000f;
         }
         else
         {
             transform.position = Input.mousePosition;
         }
-        
-        // Place Symbol
+    }
+
+    private void HandleInput()
+    {
+        // Mouse down
         if (Input.GetMouseButtonDown(0) && _isOnRecipient)
         {
             _isClicking = true;
+            _isMoving = false;
+
             _startPosition = Input.mousePosition;
             _lastPosition = Input.mousePosition;
         }
 
+        // Mouse hold
         if (Input.GetMouseButton(0) && _isClicking)
         {
-            if (Vector2.Distance(_startPosition, Input.mousePosition) > movingThreshold)
+            if (!_isMoving &&
+                Vector2.Distance(_startPosition, Input.mousePosition) > movingThreshold)
             {
                 _isMoving = true;
             }
 
             if (_isMoving)
             {
-                Debug.Log("Move");
-                CraftManager.Instance.MoveBaseTexture(Input.mousePosition.x - _lastPosition.x);
-                S_SFXManager.Instance.PlayOneAtATimeSFXClip(_movingSound, 1.5f);
+                float deltaX = Input.mousePosition.x - _lastPosition.x;
+
+                CraftManager.Instance.MoveBaseTexture(deltaX);
+
+                if (_movingSound != null)
+                {
+                    S_SFXManager.Instance.PlayOneAtATimeSFXClip(_movingSound, 1.5f);
+                }
+
                 _lastPosition = Input.mousePosition;
             }
         }
 
+        // Mouse up
         if (Input.GetMouseButtonUp(0))
         {
-            if (_isMoving)
+            if (!_isMoving &&
+                _isOnRecipient &&
+                _isClicking &&
+                _currentSymbol != null)
             {
-                _isMoving = false;
-            }
-            else if (_isOnRecipient && transform.childCount > 0 && _isClicking)
-            {
-                Debug.Log("Place Symbol");
-                CraftManager.Instance.PlaceSymbol(Input.mousePosition, transform.GetChild(0).localScale, transform.GetChild(0).rotation);
+                CraftManager.Instance.PlaceSymbol(
+                    Input.mousePosition,
+                    _currentSymbol.transform.localScale,
+                    _currentSymbol.transform.rotation
+                );
             }
 
-            _isClicking = false;
+            ResetInteractionState();
         }
+    }
+
+    private void ResetInteractionState()
+    {
+        _isClicking = false;
+        _isMoving = false;
     }
 
     public void ChangeSymbol(GameObject symbol)
     {
-        if (transform.childCount > 0)
-        {
-            Destroy(transform.GetChild(0).gameObject);
-            Destroy(_previsuZone.GetChild(0).gameObject);
-        }
+        ResetInteractionState();
+        ResetSymbol();
 
-        GameObject newSymbol = Instantiate(symbol, transform.position, Quaternion.identity, transform);
-        Instantiate(symbol, _previsuZone.position, Quaternion.identity, _previsuZone);
+        _currentSymbol = Instantiate(
+            symbol,
+            transform.position,
+            Quaternion.identity,
+            transform
+        );
 
-        if (newSymbol.TryGetComponent<Image>(out Image image))
-        {
-            image.color = new Color (image.color.r, image.color.g, image.color.b, 0.5f);
-        }
+        SetupTransparentImages(_currentSymbol, 0.5f);
 
-        for (int i = 0; i < newSymbol.transform.childCount; i++)
+        if (_currentSymbol.TryGetComponent<Image>(out Image image))
         {
-            if (newSymbol.transform.GetChild(i).gameObject.TryGetComponent<Image>(out Image imageChild))
+            if (_imagePrevisu.TryGetComponent<Image>(out Image previewImage))
             {
-                imageChild.color = new Color (imageChild.color.r, imageChild.color.g, imageChild.color.b, 0.5f);
+                previewImage.sprite = image.sprite;
+                previewImage.color = Color.white;
             }
         }
     }
 
     public void ResetSymbol()
     {
-        if (transform.childCount > 0)
+        if (_currentSymbol != null)
         {
-            Destroy(transform.GetChild(0).gameObject);
-            Destroy(_previsuZone.GetChild(0).gameObject);
+            Destroy(_currentSymbol);
+            _currentSymbol = null;
         }
     }
 
     public void ChangeScale(float scale)
     {
-        if (transform.childCount > 0)
+        ResetInteractionState();
+
+        if (_currentSymbol != null)
         {
-            transform.GetChild(0).localScale = Vector3.one * scale;
-            _previsuZone.GetChild(0).localScale = Vector3.one * scale;
+            Vector3 newScale = Vector3.one * scale;
+
+            _currentSymbol.transform.localScale = newScale;
+        }
+
+        if (_imagePrevisu != null)
+        {
+            Vector3 newScale = Vector3.one * scale * _slowSizeRatio;
+
+            // .x because we don't care which one because the base is Vector(1, 1, 1) and the scale is even so x = y = z
+            if (newScale.x > _maxScale.x)
+                newScale = _maxScale; //max amount for visibility
+            else if (newScale.x < _minScale.x)
+                newScale = _minScale; //minimum amount for visibility
+
+            _imagePrevisu.transform.localScale = newScale;
         }
     }
 
     public void ChangeRotation(float rotation)
     {
-        if (transform.childCount > 0)
+        ResetInteractionState();
+
+        Vector3 rot = new Vector3(0, 0, rotation);
+
+        if (_currentSymbol != null)
         {
-            transform.GetChild(0).eulerAngles = new Vector3 (0,0,rotation);
-            _previsuZone.GetChild(0).eulerAngles = new Vector3 (0,0,rotation);
+            _currentSymbol.transform.eulerAngles = rot;
+        }
+
+        if (_currentPreview != null)
+        {
+            _currentPreview.transform.eulerAngles = rot;
         }
     }
 
     public void ChangeState(bool onRecipient)
     {
         _isOnRecipient = onRecipient;
+    }
+
+    private void SetupTransparentImages(GameObject obj, float alpha)
+    {
+        if (obj == null) return;
+
+        Image[] images = obj.GetComponentsInChildren<Image>(true);
+
+        foreach (Image img in images)
+        {
+            Color c = img.color;
+            c.a = alpha;
+            img.color = c;
+        }
     }
 }

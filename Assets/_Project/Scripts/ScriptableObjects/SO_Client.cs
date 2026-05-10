@@ -21,12 +21,20 @@ public class SO_Client : ScriptableObject
         get => _satisfaction;
         set
         {
-            Debug.Log(value);
             _satisfaction = value;
 
             OnSatisfactionChanged?.Invoke(_satisfaction);
         }
     }
+
+    [Tooltip("The ratio of unexpected symbols that allowed")]
+    [Range(0.0f, 0.99f)]
+    public float _permissiveRatio = 0.2f;
+    
+    public string _joyfulText;
+    public string _happyText;
+    public string _unhappyText;
+    public string _sadText;
 
     public event Action<S_ClientManager.ClientSatisfaction> OnSatisfactionChanged;
 

@@ -35,7 +35,6 @@ public class S_DialogSystem : MonoBehaviour
     {
         _dialogText.text = _allclientSentencesList[_clientManager.GetCurrentClientID()]._clientSentences[_currentIndex];
 
-        Debug.Log(_currentIndex);
         if (_currentIndex == 0)
         {
             _previousButton.gameObject.SetActive(false);

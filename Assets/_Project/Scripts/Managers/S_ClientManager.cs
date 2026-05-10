@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class S_ClientManager : MonoBehaviour
     [SerializeField] GameObject _clientDialogPanel;
     [SerializeField] Transform _spawnPoint;
     [SerializeField] GameObject _clientImage;
+    [SerializeField] GameObject _informationPanel;
+    [SerializeField] TextMeshProUGUI _informationTextMesh;
     
     public static S_ClientManager Instance { get; private set; }
 
@@ -47,74 +50,70 @@ public class S_ClientManager : MonoBehaviour
     {
         List<SO_Symbols> placedSymbols = CraftManager.Instance.GetPlacedSymbols().Select(symbol => SymbolManager.Instance.GetSymbolById(symbol.Id)).ToList();
 
-        return CalculateClientSatisfaction(placedSymbols, _clientList[_clientId]);
+        ClientSatisfaction satisfaction = CalculateClientSatisfaction(placedSymbols, CurrentClient);
+
+        return satisfaction;
     }
 
     public static ClientSatisfaction CalculateClientSatisfaction(List<SO_Symbols> placedSymbols, SO_Client client)
     {
-        int currentSymbolNumber = placedSymbols.Count;
+        if (placedSymbols.Count == 0) return ClientSatisfaction.Sad;
+
+        float totalPreferredSymbols = 0.0f;
+
+        foreach (var symbol in placedSymbols)
+        {
+            if (symbol._symbolOrigin.Contains(client._clientOrigin) &&
+                (client._typesPreferences.Contains(symbol._symbolType) ||
+                 symbol._symbolTags.Any(tag => client._tagsPreferences.Contains(tag))))
+            {
+                totalPreferredSymbols++;
+            }
+        }
+
+        float satisfactionRatio = totalPreferredSymbols / placedSymbols.Count;
+
+        if (satisfactionRatio <= client._permissiveRatio) return ClientSatisfaction.Sad;
+
+        int score = 0;
         int clientPreferencesTypes = client._typesPreferences.Length;
         int clientPreferencesTags = client._tagsPreferences.Length;
 
-        int score = 0;
-
         int maxScore = clientPreferencesTypes + clientPreferencesTags;
 
-        // Check client preferences
-        int[] currentTypes = new int[clientPreferencesTypes];
-        int[] currentTags = new int[clientPreferencesTags];
-
         // Check client prefered types
-        for (int i = 0; i < client._typesPreferences.Length; i++)
+        for (int i = 0; i < clientPreferencesTypes; i++)
         {
-            for (int j = 0; j < currentSymbolNumber; j++)
-            {
-                SO_Symbols currentSymbol = placedSymbols[j];
-                if (currentSymbol._symbolType == client._typesPreferences[i] && currentSymbol._symbolOrigin.Contains(client._clientOrigin))
-                {
-                    currentTypes[i]++;
-                }
-            }
-        }
+            int count = placedSymbols.Count(s =>
+                s._symbolType == client._typesPreferences[i] &&
+                s._symbolOrigin.Contains(client._clientOrigin));
 
-        for (int i = 0; i < currentTypes.Length; i++)
-        {
-            if (currentTypes[i] >= client._numberNeededType[i])
+            if (count >= client._numberNeededType[i])
                 score++;
-            else if (currentTypes[i] < client._numberNeededType[i] / 3)
-            {
+            else if (count < client._numberNeededType[i] / 3f)
                 score--;
-            }
         }
-
+        
         // Check client prefered tags
-        for (int i = 0; i < client._tagsPreferences.Length; i++)
+        for (int i = 0; i < clientPreferencesTags; i++)
         {
-            for (int j = 0; j < currentSymbolNumber; j++)
-            {
-                SO_Symbols currentSymbol = placedSymbols[j];
-                if (currentSymbol._symbolTags.Contains(client._tagsPreferences[i]) && currentSymbol._symbolOrigin.Contains(client._clientOrigin))
-                {
-                    currentTags[i]++;
-                }
-            }
-        }
+            int count = placedSymbols.Count(s =>
+                s._symbolTags.Contains(client._tagsPreferences[i]) &&
+                s._symbolOrigin.Contains(client._clientOrigin));
 
-        for (int i = 0; i < currentTags.Length; i++)
-        {
-            if (currentTags[i] >= client._numberNeededTag[i])
+            if (count >= client._numberNeededTag[i])
                 score++;
-            else if (currentTags[i] < client._numberNeededTag[i] / 3)
-            {
+            else if (count < client._numberNeededTag[i] / 3f)
                 score--;
-            }            
         }
 
-        if (score >= maxScore)
+        float finalScore = score * satisfactionRatio;
+
+        if (finalScore >= maxScore)
             return ClientSatisfaction.Joyful;
-        else if (score >= maxScore * 0.75f)
+        else if (finalScore >= maxScore * 0.5f)
             return ClientSatisfaction.Happy;
-        else if (score >= 0)
+        else if (finalScore >= 0)
             return ClientSatisfaction.Unhappy;
         else
             return ClientSatisfaction.Sad;
@@ -131,7 +130,11 @@ public class S_ClientManager : MonoBehaviour
         switch (state)
         {
             case (int)S_GameStateManager.GameState.ITEMDELIVERY:
-                if (CurrentClient is not null) CurrentClient.Satisfaction = CompareItem();
+                if (CurrentClient is not null)
+                {
+                    CurrentClient.Satisfaction = CompareItem();
+                    FinishWithClient();
+                }
 
                 _clientId = -1;
                 
@@ -139,6 +142,30 @@ public class S_ClientManager : MonoBehaviour
                 else S_GameStateManager.Instance.ChangeState((int)S_GameStateManager.GameState.SELECTCLIENT);
                 
                 break;
+        }
+    }
+
+    public void FinishWithClient()
+    {
+        ClientSatisfaction satisfaction = CurrentClient.Satisfaction;
+
+        _informationPanel.SetActive(true);
+
+        switch (satisfaction)
+        {
+            case (ClientSatisfaction.Joyful):
+                _informationTextMesh.text = CurrentClient._joyfulText;
+                break;
+            case (ClientSatisfaction.Happy):
+                _informationTextMesh.text = CurrentClient._happyText;
+                break;
+            case (ClientSatisfaction.Unhappy):
+                _informationTextMesh.text = CurrentClient._unhappyText;
+                break;
+            case (ClientSatisfaction.Sad):
+                _informationTextMesh.text = CurrentClient._sadText;
+                break;
+
         }
     }
 }
