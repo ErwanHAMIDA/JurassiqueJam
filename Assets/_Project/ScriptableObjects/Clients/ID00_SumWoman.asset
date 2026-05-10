@@ -17,6 +17,10 @@ MonoBehaviour:
   _clientOrigin: 0
   _typesPreferences: 00000000
   _numberNeededType: 02000000
-  _tagsPreferences: 050000000200000007000000
+  _tagsPreferences: 020000000500000007000000
   _numberNeededTag: 010000000100000001000000
-  _permissiveRatio: 1
+  _permissiveRatio: 0.2
+  _joyfulText: 
+  _happyText: 
+  _unhappyText: 
+  _sadText: 

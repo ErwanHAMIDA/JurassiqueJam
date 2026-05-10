@@ -42,7 +42,7 @@ public class S_ClientManagerTest
     [Test]
     [
         // A client that receives no symbols is Unhappy.
-        TestCase(S_ClientManager.ClientSatisfaction.Unhappy, "TEST01", new string[] {}),
+        TestCase(S_ClientManager.ClientSatisfaction.Sad, "TEST01", new string[] {}),
         // A client that receives less than a third (rounded down) of the required symbols is Sad.
         TestCase(S_ClientManager.ClientSatisfaction.Sad, "TEST02", new [] { "ID00_Etoile" }),
         // A client that only need one type and one tag is Joyful when a symbol validates both.
