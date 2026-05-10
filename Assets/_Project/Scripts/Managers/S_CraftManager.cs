@@ -212,7 +212,8 @@ public class CraftManager : MonoBehaviour
 
     public void ChangeCursor(Texture2D texture)
     {
-        Cursor.SetCursor(texture, Vector2.zero, CursorMode.Auto);
+        Vector2 hotspot = new Vector2(texture.width / 2, texture.height / 2);
+        Cursor.SetCursor(texture, hotspot, CursorMode.Auto);
     }
 
     public void ResetCursor()
