@@ -20,7 +20,10 @@ MonoBehaviour:
   _tagsPreferences: 0000000003000000
   _numberNeededTag: 0200000002000000
   _permissiveRatio: 0.1
-  _joyfulText: TROP CONTENT
-  _happyText: JUSTE CONTENT
-  _unhappyText: PAS CONTENT
-  _sadText: TROP LE SEUM
+  _joyfulText: Je vois toute la force de mes proches dans ce vase. Merci infiniment.
+  _happyText: "Vous avez r\xE9ussi \xE0 esquisser la force bestiale. Cela devrait
+    faire l'affaire."
+  _unhappyText: "Je ne sais pas si ce vase est assez r\xE9ussi pour l'offrir sur
+    l'autel..."
+  _sadText: "Je n'arrive pas \xE0 ressentir la force transpara\xEEtre de ce r\xE9cipient...
+    Je ne peux pas trouver la paix avec \xE7a."

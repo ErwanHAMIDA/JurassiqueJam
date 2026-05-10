@@ -19,4 +19,11 @@ MonoBehaviour:
   _numberNeededType: 0000000005000000
   _tagsPreferences: 0400000002000000
   _numberNeededTag: 0100000002000000
-  _satisfaction: 3
+  _permissiveRatio: 0.2
+  _joyfulText: "Ces d\xE9cors ! Cette beaut\xE9 ! Vous avez saisi l'essence de ma
+    demande !"
+  _happyText: "Ce r\xE9cipient semble convenir, bon travail."
+  _unhappyText: "Je m'attendais \xE0 mieux... Je ne peux pas pr\xE9senter \xE7a \xE0
+    Inanna."
+  _sadText: "Qu'avez-vous fait ? Quelle est cette horeur ? Vous manquez de respect
+    \xE0 Inanna !"

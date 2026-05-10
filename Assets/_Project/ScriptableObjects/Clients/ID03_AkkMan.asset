@@ -19,4 +19,10 @@ MonoBehaviour:
   _numberNeededType: 0100000003000000
   _tagsPreferences: 020000000300000006000000
   _numberNeededTag: 010000000100000001000000
-  _satisfaction: 3
+  _permissiveRatio: 0.2
+  _joyfulText: "Avec un tel vase, la puissance du dieu-Soleil ne peut que continuer
+    \xE0 resplendir ! Bravo, artisan."
+  _happyText: "Je pense que ce r\xE9cipient est d'assez bonne facture pour l'offrir
+    au dieu-Soleil."
+  _unhappyText: "Un tel r\xE9cipient ne me convient pas, recommencez."
+  _sadText: "Quelle horreur ?! Vous osez me pr\xE9senter un tel immondice ?"

@@ -20,7 +20,10 @@ MonoBehaviour:
   _tagsPreferences: 020000000500000007000000
   _numberNeededTag: 010000000100000001000000
   _permissiveRatio: 0.2
-  _joyfulText: 
-  _happyText: 
-  _unhappyText: 
-  _sadText: 
+  _joyfulText: "Je n'aurais pas pu mieux transmettre ma pi\xE9t\xE9 au dieu-Lune.
+    Merci !"
+  _happyText: "Ca r\xE9cipient n'est pas si mal. Merci."
+  _unhappyText: "Ce vase ne convient pas... Je voulais \xE0 la fois remercier le
+    dieu-Lune et demander protection."
+  _sadText: N'avez-vous donc rien compris ? Je voulais simplement remercier le dieu-Lune
+    et demander protection.
