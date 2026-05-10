@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
+using System.Collections;
 
 public class CraftManager : MonoBehaviour
 {
@@ -112,14 +113,13 @@ public class CraftManager : MonoBehaviour
 
     public void CheckOnboarding(int index)
     {
-        Debug.Log("Onboarding : " + _onboardingCurrentIndex);
-        Debug.Log("Index send : " + index);
-
         if (_onboardingCurrentIndex >= _onboardingPanelList.Count)
         {
             _onboardingPanelList[_onboardingCurrentIndex - 1].SetActive(false);
             return;
         }
+
+        if (index != _onboardingCurrentIndex) return;
 
         if (_onboardingCurrentIndex == 12)
         {
@@ -132,7 +132,13 @@ public class CraftManager : MonoBehaviour
             _waitedOnceAt12 = false;
         }
 
-        if (index != _onboardingCurrentIndex) return;
+        if (_onboardingCurrentIndex == 3)
+        {
+            StartCoroutine(AutoDisabledPanel(4.0f, index));
+            return;
+        }
+
+        
 
         if (index > 0 && index < _onboardingPanelList.Count)
         {
@@ -140,13 +146,28 @@ public class CraftManager : MonoBehaviour
                 _onboardingPanelList[index - 1].SetActive(false);
         }
 
-        if (_onboardingPanelList[index] != null)
+        if (index == 0)
+        {
+            _onboardingPanelList[index].SetActive(false);
+        }
+        else if (_onboardingPanelList[index] != null)
             _onboardingPanelList[index].SetActive(true);
 
         
 
         _onboardingCurrentIndex++;
 
+    }
+
+    IEnumerator AutoDisabledPanel(float delay, int index)
+    {
+        _onboardingPanelList[index - 1].SetActive(false);
+        _onboardingPanelList[index].SetActive(true);
+        yield return new WaitForSeconds(delay);
+        _onboardingCurrentIndex++;
+        _onboardingPanelList[index].SetActive(false);
+        //_onboardingPanelList[index].SetActive(false);
+        CheckOnboarding(4);
     }
 
     public void SelectMaterial(int id)

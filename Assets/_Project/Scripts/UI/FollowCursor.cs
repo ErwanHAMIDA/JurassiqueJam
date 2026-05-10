@@ -47,7 +47,6 @@ public class FollowCursor : MonoBehaviour
 
             if (_isMoving)
             {
-                Debug.Log("Move");
                 CraftManager.Instance.MoveBaseTexture(Input.mousePosition.x - _lastPosition.x);
                 S_SFXManager.Instance.PlayOneAtATimeSFXClip(_movingSound, 1.5f);
                 _lastPosition = Input.mousePosition;
@@ -62,7 +61,6 @@ public class FollowCursor : MonoBehaviour
             }
             else if (_isOnRecipient && transform.childCount > 0 && _isClicking)
             {
-                Debug.Log("Place Symbol");
                 CraftManager.Instance.PlaceSymbol(Input.mousePosition, transform.GetChild(0).localScale, transform.GetChild(0).rotation);
             }
 
