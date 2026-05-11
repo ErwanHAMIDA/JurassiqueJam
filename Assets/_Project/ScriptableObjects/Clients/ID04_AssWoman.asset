@@ -13,9 +13,16 @@ MonoBehaviour:
   m_Name: ID04_AssWoman
   m_EditorClassIdentifier: Assembly-CSharp::SO_Client
   _name: CLient3
-  _sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  _sprite: {fileID: 21300000, guid: b1001f21b0d91ba84836a956ff4f8ff5, type: 3}
   _clientOrigin: 2
   _typesPreferences: 0100000002000000
   _numberNeededType: 0500000004000000
   _tagsPreferences: 0100000004000000
   _numberNeededTag: 0500000001000000
+  _permissiveRatio: 0.2
+  _joyfulText: "Toutes mes craintes pour le futur de mon village sont dissip\xE9es.
+    Je peux partir en paix!"
+  _happyText: "Ces symboles devraient garantir la fertilit\xE9 des champs. Merci."
+  _unhappyText: "Je ne vois pas comment nos cultures pourraient mieux pousser avec
+    \xE7a..."
+  _sadText: "Ce n'est absolument pas ce que j'avais demand\xE9!"

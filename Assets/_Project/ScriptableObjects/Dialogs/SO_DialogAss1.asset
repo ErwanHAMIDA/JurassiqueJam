@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7c2fd176334084ab27291f4e6ce515, type: 3}
+  m_Name: SO_DialogAss1
+  m_EditorClassIdentifier: Scripts::SO_ClientDialog
+  _clientSentences:
+  - "La s\xE9cheresse a ravag\xE9 les champs de mon village du Nord de l'Assyrie.
+    J'aimerais garantir des r\xE9coltes abondantes pour mes cong\xE9n\xE8res."

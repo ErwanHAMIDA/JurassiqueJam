@@ -13,9 +13,16 @@ MonoBehaviour:
   m_Name: ID05_AssMan
   m_EditorClassIdentifier: Assembly-CSharp::SO_Client
   _name: CLient3
-  _sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  _sprite: {fileID: 21300000, guid: 1a9e43ba90f00a892bbbf121b8b948e1, type: 3}
   _clientOrigin: 2
   _typesPreferences: 0100000002000000
   _numberNeededType: 0200000002000000
   _tagsPreferences: 000000000700000008000000
   _numberNeededTag: 020000000100000001000000
+  _permissiveRatio: 0.2
+  _joyfulText: "Avec \xE7a, mes b\xEAtes seront prot\xE9g\xE9es! Merci du fond du
+    coeur."
+  _happyText: "Ca pourrait faire l'affaire, j'esp\xE8re..."
+  _unhappyText: "La route de mon troupeau va \xEAtre longue, cela risque d'\xEAtre
+    insuffisant."
+  _sadText: "N'as tu donc pas \xE9cout\xE9 mes craintes?"
