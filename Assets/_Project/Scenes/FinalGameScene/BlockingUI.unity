@@ -8594,6 +8594,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6398039060133768200}
     - target: {fileID: 3678877423829958501, guid: 0af9cf411bd8afb418093cf918a6c27e, type: 3}
+      propertyPath: _informationImage
+      value: 
+      objectReference: {fileID: 6398039060133768200}
+    - target: {fileID: 3678877423829958501, guid: 0af9cf411bd8afb418093cf918a6c27e, type: 3}
       propertyPath: _informationPanel
       value: 
       objectReference: {fileID: 2110369038}
