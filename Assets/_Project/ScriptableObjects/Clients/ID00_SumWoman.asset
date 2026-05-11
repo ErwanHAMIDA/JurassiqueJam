@@ -19,7 +19,7 @@ MonoBehaviour:
   _numberNeededType: 02000000
   _tagsPreferences: 020000000500000007000000
   _numberNeededTag: 010000000100000001000000
-  _permissiveRatio: 0.2
+  _permissiveRatio: 0
   _joyfulText: "Je n'aurais pas pu mieux transmettre ma pi\xE9t\xE9 au dieu-Lune.
     Merci !"
   _happyText: "Ca r\xE9cipient n'est pas si mal. Merci."

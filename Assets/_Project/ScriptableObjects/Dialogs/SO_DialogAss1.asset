@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad7c2fd176334084ab27291f4e6ce515, type: 3}
-  m_Name: SO_DialogAkk2
-  m_EditorClassIdentifier: Assembly-CSharp::SO_ClientDialog
+  m_Name: SO_DialogAss1
+  m_EditorClassIdentifier: Scripts::SO_ClientDialog
   _clientSentences:
-  - "Le dieu-Soleil prot\xE8ge notre peuple akkadien. Je ne me vois pas partir sans
-    d\xE9dier un r\xE9cipient splendide \xE0 sa puissance guerri\xE8re !"
+  - "La s\xE9cheresse a ravag\xE9 les champs de mon village du Nord de l'Assyrie.
+    J'aimerais garantir des r\xE9coltes abondantes pour mes cong\xE9n\xE8res."
