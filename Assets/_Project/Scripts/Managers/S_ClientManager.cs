@@ -14,6 +14,7 @@ public class S_ClientManager : MonoBehaviour
     [SerializeField] GameObject _clientImage;
     [SerializeField] GameObject _informationPanel;
     [SerializeField] TextMeshProUGUI _informationTextMesh;
+    [SerializeField] private GameObject _informationImage;
     
     public static S_ClientManager Instance { get; private set; }
 
@@ -139,11 +140,14 @@ public class S_ClientManager : MonoBehaviour
 
                 _clientId = -1;
                 
-                if (AreAllClientsCompleted()) S_GameStateManager.Instance.ChangeState(S_GameStateManager.GameState.END);
-                else S_GameStateManager.Instance.ChangeState((int)S_GameStateManager.GameState.SELECTCLIENT);
-                
                 break;
         }
+    }
+
+    public void CheckAllClientsCompleted()
+    {
+        if (AreAllClientsCompleted()) S_GameStateManager.Instance.ChangeState(S_GameStateManager.GameState.END);
+        else S_GameStateManager.Instance.ChangeState((int)S_GameStateManager.GameState.SELECTCLIENT);
     }
 
     public void FinishWithClient()
@@ -151,6 +155,7 @@ public class S_ClientManager : MonoBehaviour
         ClientSatisfaction satisfaction = CurrentClient.Satisfaction;
 
         _informationPanel.SetActive(true);
+        _informationImage.GetComponent<Image>().sprite = CurrentClient._sprite;
 
         switch (satisfaction)
         {
