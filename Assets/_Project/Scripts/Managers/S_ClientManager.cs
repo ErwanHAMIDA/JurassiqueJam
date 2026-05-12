@@ -30,14 +30,6 @@ public class S_ClientManager : MonoBehaviour
     private int _clientId;
     [CanBeNull] public SO_Client CurrentClient => _clientId >= 0 && _clientId < _clientList.Count ? _clientList[_clientId] : null;
 
-    private void Start()
-    {
-        foreach (SO_Client client in _clientList)
-        {
-            client.Satisfaction = ClientSatisfaction.Sad;
-        }
-    }
-
     public void SelectClient(int index)
     {
         if (index >= _clientList.Count || index < 0) return;
