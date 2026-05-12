@@ -73,7 +73,7 @@ public class S_GameStateManager : MonoBehaviour
             case (int)GameState.ITEMCRAFTING:
                 _craftMenuBG.GetComponent<Image>().color = new Vector4(0.33f, 0.33f, 0.33f, 1.0f);
                 _itemControlUI.SetActive(false);
-                _recipientUI.transform.localScale = Vector3.one;
+                _recipientUI.transform.localScale = new Vector3(0.835f, 0.835f, 1);
                 _backButtonUI.SetActive(true);
                 break;
             case (int)GameState.ITEMDELIVERY:
