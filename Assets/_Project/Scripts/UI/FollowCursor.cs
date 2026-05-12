@@ -178,6 +178,11 @@ public class FollowCursor : MonoBehaviour
         {
             _currentPreview.transform.eulerAngles = rot;
         }
+
+        if (_imagePrevisu != null)
+        {
+            _imagePrevisu.transform.eulerAngles = rot;
+        }
     }
 
     public void ChangeState(bool onRecipient)
