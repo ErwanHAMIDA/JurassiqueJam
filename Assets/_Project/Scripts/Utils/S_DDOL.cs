@@ -1,14 +1,18 @@
 using UnityEngine;
 
+
 public class S_DDOL : MonoBehaviour
 {
-    private void Awake()
+    [SerializeField] private string _tagName;
+    void Awake()
     {
-        if (this != null)
+        GameObject[] objs = GameObject.FindGameObjectsWithTag(_tagName);
+
+        if (objs.Length > 1)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
 
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this.gameObject);
     }
 }

@@ -3400,7 +3400,7 @@ GameObject:
   - component: {fileID: 1886601987}
   m_Layer: 0
   m_Name: MusicManager
-  m_TagString: Untagged
+  m_TagString: MusicPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3529,6 +3529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da519ca5e95158d43a8f298eb5810f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_DDOL
+  _tagName: MusicPlayer
 --- !u!1 &2015428453
 GameObject:
   m_ObjectHideFlags: 0
