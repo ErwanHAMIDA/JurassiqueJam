@@ -1,8 +1,9 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using TMPro;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,6 +29,14 @@ public class S_ClientManager : MonoBehaviour
 
     private int _clientId;
     [CanBeNull] public SO_Client CurrentClient => _clientId >= 0 && _clientId < _clientList.Count ? _clientList[_clientId] : null;
+
+    private void Start()
+    {
+        foreach (SO_Client client in _clientList)
+        {
+            client.Satisfaction = ClientSatisfaction.Sad;
+        }
+    }
 
     public void SelectClient(int index)
     {
@@ -136,6 +145,7 @@ public class S_ClientManager : MonoBehaviour
                 {
                     CurrentClient.Satisfaction = CompareItem();
                     FinishWithClient();
+                    CheckAllClientsCompleted();
                 }
 
                 _clientId = -1;

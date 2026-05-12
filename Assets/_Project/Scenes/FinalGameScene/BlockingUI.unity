@@ -1552,7 +1552,19 @@ MonoBehaviour:
         m_CallState: 2
   OnSatisfactionHappy:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 326433535}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnSatisfactionUnhappy:
     m_PersistentCalls:
       m_Calls: []
@@ -2809,6 +2821,18 @@ MonoBehaviour:
   OnSatisfactionHappy:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 518739691}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1729290947}
         m_TargetAssemblyTypeName: S_SFXManager, Assembly-CSharp
         m_MethodName: PlaySFXClip
@@ -4292,7 +4316,19 @@ MonoBehaviour:
         m_CallState: 2
   OnSatisfactionHappy:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 644921567}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnSatisfactionUnhappy:
     m_PersistentCalls:
       m_Calls: []
@@ -5260,6 +5296,18 @@ MonoBehaviour:
   OnSatisfactionHappy:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 910815621}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1729290947}
         m_TargetAssemblyTypeName: S_SFXManager, Assembly-CSharp
         m_MethodName: PlaySFXClip
@@ -5514,6 +5562,18 @@ MonoBehaviour:
   OnSatisfactionHappy:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 920219562}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1729290947}
         m_TargetAssemblyTypeName: S_SFXManager, Assembly-CSharp
         m_MethodName: PlaySFXClip
@@ -7632,6 +7692,18 @@ MonoBehaviour:
   OnSatisfactionHappy:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1182268848}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1729290947}
         m_TargetAssemblyTypeName: S_SFXManager, Assembly-CSharp
         m_MethodName: PlaySFXClip
@@ -7886,6 +7958,18 @@ MonoBehaviour:
   OnSatisfactionHappy:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1187593808}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1729290947}
         m_TargetAssemblyTypeName: S_SFXManager, Assembly-CSharp
         m_MethodName: PlaySFXClip
@@ -7915,7 +7999,19 @@ MonoBehaviour:
         m_CallState: 2
   OnSatisfactionSad:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1729290947}
+        m_TargetAssemblyTypeName: S_SFXManager, Scripts
+        m_MethodName: PlaySFXClip
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 976d028c3e19723498e4699d4a6d51d2, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1217930475
 GameObject:
   m_ObjectHideFlags: 0
@@ -9516,7 +9612,19 @@ MonoBehaviour:
         m_CallState: 2
   OnSatisfactionHappy:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1439821411}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnSatisfactionUnhappy:
     m_PersistentCalls:
       m_Calls: []
@@ -9747,8 +9855,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64
-  m_fontSizeBase: 64
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10422,7 +10530,19 @@ MonoBehaviour:
         m_CallState: 2
   OnSatisfactionHappy:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1556045019}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnSatisfactionUnhappy:
     m_PersistentCalls:
       m_Calls: []
@@ -12141,7 +12261,19 @@ MonoBehaviour:
         m_CallState: 2
   OnSatisfactionHappy:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1871856011}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnSatisfactionUnhappy:
     m_PersistentCalls:
       m_Calls: []
@@ -12559,7 +12691,19 @@ MonoBehaviour:
         m_CallState: 2
   OnSatisfactionHappy:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1911066969}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnSatisfactionUnhappy:
     m_PersistentCalls:
       m_Calls: []
@@ -16619,6 +16763,18 @@ MonoBehaviour:
   OnSatisfactionHappy:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1497243978549366660}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1729290947}
         m_TargetAssemblyTypeName: S_SFXManager, Assembly-CSharp
         m_MethodName: PlaySFXClip
